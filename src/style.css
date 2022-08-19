@@ -12,6 +12,7 @@ h3 {
     display: flex;
     justify-content: left;
     align-items: flex-start;
+    text-transform: uppercase;
 }
 
 #container {
