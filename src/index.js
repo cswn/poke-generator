@@ -1,12 +1,19 @@
 "use strict"
 
+/// SETUP ///
+import './style.css';
+import logo from './logo.jpg';
 const axios = require('axios').default;
-
 
 let randomNumber = Math.floor(Math.random() * 1154);
 let theChosenOne = '';
 const container = document.getElementById('container');
+const pokeLogo = new Image();
+pokeLogo.src = logo;
 
+
+
+/// API REQUEST ///
 axios.get('https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0')
 
     .then((res) => {
@@ -31,6 +38,7 @@ axios.get('https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0')
                             let pokemonType = pokeType.type.name;
 
                             container.innerText = 'Pokemon: ' + theChosenOne + '\n ID: ' + pokeID + '\n Type: ' + pokemonType;
+                            container.appendChild(pokeLogo);
 
                         } else if (pokemonInfo.length === 2) {
 
@@ -43,9 +51,6 @@ axios.get('https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0')
                             container.innerText = 'Pokemon: ' + theChosenOne + '\n ID: ' + pokeID + '\n Types: ' + pokemonType1 + ' and ' + pokemonType2;
 
                         }
-
-                        
-
 
                     })
 
