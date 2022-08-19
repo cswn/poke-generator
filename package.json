@@ -1,0 +1,27 @@
+{
+  "name": "poke-generator",
+  "version": "1.0.0",
+  "description": "Random Pokemon generator made with PokeAPI and Axios",
+  "main": "index.js",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/claraswan/poke-generator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/claraswan/poke-generator/issues"
+  },
+  "homepage": "https://github.com/claraswan/poke-generator#readme"
+}
