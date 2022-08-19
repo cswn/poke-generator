@@ -8,8 +8,16 @@ const axios = require('axios').default;
 let randomNumber = Math.floor(Math.random() * 1154);
 let theChosenOne = '';
 const container = document.getElementById('container');
-const pokeLogo = new Image();
-pokeLogo.src = logo;
+const card = document.querySelector('.card');
+const pic = document.getElementById('pic');
+const header = document.getElementById('header');
+const content = document.getElementById('poke-info');
+container.appendChild(card);
+card.appendChild(header);
+card.appendChild(pic);
+card.appendChild(content);
+// const pokeLogo = new Image();
+// pokeLogo.src = logo;
 
 
 
@@ -24,6 +32,8 @@ axios.get('https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0')
             if (data.indexOf(pokemon) === randomNumber) {
 
                 theChosenOne += pokemon.name;
+                const name = document.createElement('h3');
+                name.innerText = theChosenOne;
 
                 axios.get('https://pokeapi.co/api/v2/pokemon/' + theChosenOne)
 
@@ -37,8 +47,8 @@ axios.get('https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0')
                             let pokeType = pokemonInfo[0];
                             let pokemonType = pokeType.type.name;
 
-                            container.innerText = 'Pokemon: ' + theChosenOne + '\n ID: ' + pokeID + '\n Type: ' + pokemonType;
-                            container.appendChild(pokeLogo);
+                            content.innerText = 'ID: ' + pokeID + '\n Type: ' + pokemonType;
+                            header.appendChild(name);
 
                         } else if (pokemonInfo.length === 2) {
 
@@ -48,7 +58,8 @@ axios.get('https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0')
                             let pokemonType1 = type1.type.name;
                             let pokemonType2 = type2.type.name;
 
-                            container.innerText = 'Pokemon: ' + theChosenOne + '\n ID: ' + pokeID + '\n Types: ' + pokemonType1 + ' and ' + pokemonType2;
+                            content.innerText = 'ID: ' + pokeID + '\n Types: ' + pokemonType1 + ' and ' + pokemonType2;
+                            header.appendChild(name);
 
                         }
 
