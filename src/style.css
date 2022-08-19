@@ -1,6 +1,7 @@
 body {
-    background: darkgray;
-    color: white;
+    background: lavender;
+    color: black;
+    font-family: monospace;
 }
 
 img {
@@ -8,14 +9,27 @@ img {
     height: auto;
 }
 
+h1 {
+    text-align: center;
+    margin: 40px;
+}
+
 h3 {
     display: flex;
     justify-content: left;
     align-items: flex-start;
+    text-transform: uppercase;
 }
 
 #container {
     display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#title {
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
