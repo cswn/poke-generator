@@ -2,7 +2,7 @@
 
 /// SETUP ///
 import './style.css';
-import logo from './logo.jpg';
+import picture from './logo.jpg';
 const axios = require('axios').default;
 
 let randomNumber = Math.floor(Math.random() * 1154);
@@ -16,6 +16,7 @@ container.appendChild(card);
 card.appendChild(header);
 card.appendChild(pic);
 card.appendChild(content);
+
 // const pokeLogo = new Image();
 // pokeLogo.src = logo;
 
@@ -39,9 +40,12 @@ axios.get('https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0')
 
                     .then((res) => {
 
-                        const pokemonInfo = res.data.types;
                         let pokeID = res.data.id;
-
+                        const pokemonInfo = res.data.types;
+                        // const pics = res.data.sprites;
+                        // const pokePic = pics.front_default;
+                        // pic.innerHTML(<img src="pokePic"></img>);
+                        
                         if (pokemonInfo.length === 1) {
 
                             let pokeType = pokemonInfo[0];
