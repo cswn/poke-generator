@@ -169,60 +169,50 @@ function Pokemon(name, type, id) {
 
 /// REQUEST ///
 
-axios.get('https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0')
+axios.get('https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0').then((res) => {
 
-    .then((res) => {
-
-        const data = res.data.results;
+    const data = res.data.results;
         
-        for (let pokemon of data) {
-            if (data.indexOf(pokemon) === randomNumber) {
+    for (let pokemon of data) {
+        if (data.indexOf(pokemon) === randomNumber) {
+            theChosenOne += pokemon.name;
+            name.innerText = theChosenOne;
 
-                theChosenOne += pokemon.name;
-                name.innerText = theChosenOne;
-
-                axios.get('https://pokeapi.co/api/v2/pokemon/' + theChosenOne)
-
-                    .then((res) => {
-                        
-                        let pokeID = res.data.id;
-                        const pokemonInfo = res.data.types;
-                        // const pics = res.data.sprites;
-                        // const pokePic = pics.front_default;
-                        // pic.innerHTML(<img src="pokePic"></img>);
-                        
-                        if (pokemonInfo.length === 1) {
-
-                            let pokeType = pokemonInfo[0];
-                            let pokemonType = pokeType.type.name;
-                            const currentPokemon = new Pokemon(theChosenOne, pokemonType, pokeID);
-                            currentPokemon.pokemonTypeDisplay();
-
-                        } else if (pokemonInfo.length === 2) {
-
-                            let type1 = pokemonInfo[0];
-                            let type2 = pokemonInfo[1];
-
-                            let pokemonType1 = type1.type.name;
-                            let pokemonType2 = type2.type.name;
-                            const currentPokemon = new Pokemon(theChosenOne, pokemonType1, pokeID);
-                            currentPokemon.pokemonTypeDisplay();
-
-                        }
-
-                    })
-
-                    .catch((err) => {
-                        console.log(err);
-                    })
-            }
+            return axios.get('https://pokeapi.co/api/v2/pokemon/' + theChosenOne)
         }
+    }
 
-    })
+}).then((res) => {
+                        
+    let pokeID = res.data.id;
+    const pokemonInfo = res.data.types;
+        
+    if (pokemonInfo.length === 1) {
 
-    .catch((err) => {
-        console.log(err);
-    })
+        let pokeType = pokemonInfo[0];
+        let pokemonType = pokeType.type.name;
+        const currentPokemon = new Pokemon(theChosenOne, pokemonType, pokeID);
+        currentPokemon.pokemonTypeDisplay();
+
+    } else if (pokemonInfo.length === 2) {
+
+        let type1 = pokemonInfo[0];
+        let type2 = pokemonInfo[1];
+
+        let pokemonType1 = type1.type.name;
+        let pokemonType2 = type2.type.name;
+        const currentPokemon = new Pokemon(theChosenOne, pokemonType1, pokeID);
+        currentPokemon.pokemonTypeDisplay();
+
+    }
+
+}).catch((err) => {
+    console.log(err);
+})
+
+.catch((err) => {
+     console.log(err);
+})
 
 
 reload.addEventListener('click', () => {
