@@ -1,73 +1,3 @@
-<<<<<<< HEAD
-body {
-    background: lavender;
-    color: black;
-    font-family: monospace;
-}
-
-img {
-    width: 40px;
-    height: auto;
-}
-
-h1 {
-    text-align: center;
-    margin: 40px;
-}
-
-h3 {
-    display: flex;
-    justify-content: left;
-    align-items: flex-start;
-    text-transform: uppercase;
-}
-
-#container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#title {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.card {
-    border: solid 10px yellow;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    background: lightblue;
-    border-radius: 8px;
-    padding: 4px;
-    margin-top: 80px;
-    width: 200px;
-    height: 300px;
-    color: navy;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-#pic {
-    border: solid 3px yellow;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    background: gray;
-    width: 150px;
-    height: 100px;
-}
-
-#poke-info {
-    margin: 10px;
-}
-
-#header {
-    width: 150px;
-    padding: 2px;
-    margin: 4px;
-=======
 body {
     background: lavender;
     font-family: monospace;
@@ -136,5 +66,4 @@ h3 {
     flex-direction: column;
     align-items: center;
     justify-content: center;
->>>>>>> c83c2cabf37629549edc4fbee8d57c73cd7196e4
 }
