@@ -12,6 +12,7 @@ const card = document.querySelector('.card');
 const pic = document.getElementById('pic');
 const header = document.getElementById('header');
 const content = document.getElementById('poke-info');
+const reload = document.getElementById('page-reloader');
 container.appendChild(card);
 card.appendChild(header);
 card.appendChild(pic);
@@ -21,8 +22,22 @@ card.appendChild(content);
 // pokeLogo.src = logo;
 
 
+/// Pokemon Object Contructor ///
+/**
+ * 
+ * @param {string} name 
+ * @param {string} type 
+ * @param {number} id 
+ */
+function Pokemon(name, type, id) {
+    this.name = name;
+    this.type = type;
+    this.id = id;
+}
 
-/// API REQUEST ///
+
+
+/// REQUEST ///
 axios.get('https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0')
 
     .then((res) => {
@@ -80,3 +95,7 @@ axios.get('https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0')
     .catch((err) => {
         console.log(err);
     })
+
+reload.addEventListener('click', () => {
+    window.location.reload();
+}) 
