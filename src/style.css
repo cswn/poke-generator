@@ -36,11 +36,18 @@ h3 {
     margin-top: 80px;
     width: 20rem;
     height: 30rem;
-    color: navy;
+    color: black;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.type_icon {
+    width: 1.2em;
+    height: 1.2em;
+    border-radius: 25px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 #pic {
@@ -59,6 +66,9 @@ h3 {
     padding: 2px;
     margin: 4px;
     font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 #page-header {
