@@ -1,5 +1,7 @@
 "use strict"
 
+const axios = require('axios').default;
+
 /// SETUP ///
 import './style.css';
 import bug from './type_icons/bug.svg';
@@ -76,12 +78,7 @@ const waterType = new Image();
 waterType.classList.add('type_icon');
 waterType.src = water;
 
-///
-const axios = require('axios').default;
-///
-
-
-// let theChosenOne = '';
+const KEY_ENTER = 13;
 const container = document.getElementById('container');
 const card = document.querySelector('.card');
 const pic = document.getElementById('pic');
@@ -90,23 +87,24 @@ const name = document.getElementById('name_of_pokemon');
 const typeIcon = document.getElementById('type_icon');
 const content = document.getElementById('poke-info');
 const reload = document.getElementById('page-reloader');
+const searchButton = document.getElementById('poke-search');
+const searchBar = document.getElementById('pokeSearchInput');
+searchBar.style.display = 'none';
 container.appendChild(card);
 card.appendChild(header);
 header.appendChild(name);
 card.appendChild(pic);
 card.appendChild(content);
-/////
 
 /**
  * Pokemon Object Contructor
  */
-function Pokemon(name, type, id) {
+ function Pokemon(name, type, id) {
     this.name = name;
     this.type = type;
     this.id = id;
     content.innerText = 'ID: ' + id;
     this.pokemonTypeDisplay = function() {
-        console.log('pokemonTypeDisplay function called');
         if (type === 'bug') {
             card.style.background = '#7dff00';
             typeIcon.appendChild(bugType);
@@ -118,7 +116,7 @@ function Pokemon(name, type, id) {
             card.style.background = '#4a4c09';
             typeIcon.appendChild(dragonType);
         } else if (type === 'electric') {
-            card.style.background = '#4a4c09';
+            card.style.background = '#e0d530';
             typeIcon.appendChild(electricType);
         } else if (type === 'fairy') {
             card.style.background = '#ff0698';
@@ -166,10 +164,9 @@ function Pokemon(name, type, id) {
     }
 }
 
-
 /// REQUEST ///
 
-function generateNewPokemon() {
+function generateRandomPokemon() {
 
     // initialize variables used in request
     let theChosenOne = '';
@@ -223,12 +220,63 @@ function generateNewPokemon() {
     
 }
 
+function generateFromSearch(searchedName) {
+
+    axios.get('https://pokeapi.co/api/v2/pokemon/' + searchedName).then((res) => {
+        
+        let pokeID = res.data.id;
+        let pokemonInfo = res.data.types;
+
+        if (pokemonInfo.length === 1) {
+    
+            let pokeType = pokemonInfo[0];
+            let pokemonType = pokeType.type.name;
+            const currentPokemon = new Pokemon(searchedName, pokemonType, pokeID);
+            currentPokemon.pokemonTypeDisplay();
+    
+        } else if (pokemonInfo.length === 2) {
+    
+            let type1 = pokemonInfo[0];
+            let pokemonType1 = type1.type.name;
+            const currentPokemon = new Pokemon(searchedName, pokemonType1, pokeID);
+            currentPokemon.pokemonTypeDisplay();
+    
+        }
+    }).catch((err) => {
+        console.log(err);
+    })
+}
+
 // call function on initial page load
-generateNewPokemon();
+generateRandomPokemon();
 
 reload.addEventListener('click', () => {
 
     typeIcon.removeChild(typeIcon.firstElementChild);
-    generateNewPokemon();
+    generateRandomPokemon();
     
+}) 
+
+searchButton.addEventListener('click', () => {
+
+    console.log('search button clicked');
+    searchBar.style.display = '';
+    searchButton.style.display = 'none';
+    
+}) 
+
+searchBar.addEventListener('keypress', (event) => {
+
+    if (event.key === 'Enter' && searchBar.value !== '') {
+        event.preventDefault();
+        typeIcon.removeChild(typeIcon.firstElementChild);
+        const searchValue = searchBar.value.toLowerCase();
+        console.log(searchValue);
+
+        searchBar.style.display = 'none';
+        searchBar.value = '';
+        searchButton.style.display = '';
+
+        generateFromSearch(searchValue);
+    }
 }) 

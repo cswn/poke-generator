@@ -21,12 +21,6 @@ h3 {
     text-transform: uppercase;
 }
 
-#container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .card {
     border: solid 10px yellow;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -48,6 +42,12 @@ h3 {
     height: 1.2em;
     border-radius: 25px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #pic {
@@ -78,17 +78,25 @@ h3 {
     justify-content: center;
 }
 
-#page-reloader {
+#page-functions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.poke-button {
     border: solid 1px navy;
     font-size: 16px;
     text-align: center;
     border-radius: 8px;
-    width: 8rem;
-    height: 1.5rem;
+    width: 6rem;
+    height: 2.7rem;
+    padding: 0.1rem;
     cursor: pointer;
 }
 
-#page-reloader:hover {
+.poke-button:hover {
     background: rgb(127, 127, 175);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
