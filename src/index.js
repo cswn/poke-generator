@@ -87,9 +87,11 @@ const name = document.getElementById('name_of_pokemon');
 const typeIcon = document.getElementById('type_icon');
 const content = document.getElementById('poke-info');
 const reload = document.getElementById('page-reloader');
+const errorMessage = document.getElementById('error-message');
 const searchButton = document.getElementById('poke-search');
 const searchBar = document.getElementById('pokeSearchInput');
 searchBar.style.display = 'none';
+errorMessage.style.display = 'none';
 container.appendChild(card);
 card.appendChild(header);
 header.appendChild(name);
@@ -190,6 +192,8 @@ function generateRandomPokemon() {
                             
         let pokeID = res.data.id;
         const pokemonInfo = res.data.types;
+        const imageSrc = res.data.sprites.front_default;
+        pic.innerHTML = ('<img src="' + imageSrc + '">');
             
         if (pokemonInfo.length === 1) {
     
@@ -222,10 +226,16 @@ function generateRandomPokemon() {
 
 function generateFromSearch(searchedName) {
 
+    // let theChosenOne = '';
+    
     axios.get('https://pokeapi.co/api/v2/pokemon/' + searchedName).then((res) => {
         
+        // theChosenOne += searchedName;
+        name.innerText = searchedName;
         let pokeID = res.data.id;
         let pokemonInfo = res.data.types;
+        const imageSrc = res.data.sprites.front_default;
+        pic.innerHTML = ('<img src="' + imageSrc + '">');
 
         if (pokemonInfo.length === 1) {
     
@@ -244,22 +254,38 @@ function generateFromSearch(searchedName) {
         }
     }).catch((err) => {
         console.log(err);
+
+        errorMessage.style.display = '';
+        errorMessage.innerText = "That isn't a pokemon!";
+        card.style.background = 'lightblue';
+        name.innerText = '';
+        content.innerText = '';
+
+        setTimeout(() => {
+            errorMessage.style.display = 'none';
+            errorMessage.innerText = '';
+        }, 2000)
+        
     })
 }
 
 // call function on initial page load
 generateRandomPokemon();
 
+
+// event listeners
 reload.addEventListener('click', () => {
 
-    typeIcon.removeChild(typeIcon.firstElementChild);
+    // reset card
+    if (typeIcon.hasChildNodes()) {
+        typeIcon.removeChild(typeIcon.firstElementChild);
+    }
     generateRandomPokemon();
     
 }) 
 
 searchButton.addEventListener('click', () => {
 
-    console.log('search button clicked');
     searchBar.style.display = '';
     searchButton.style.display = 'none';
     
@@ -268,9 +294,16 @@ searchButton.addEventListener('click', () => {
 searchBar.addEventListener('keypress', (event) => {
 
     if (event.key === 'Enter' && searchBar.value !== '') {
+
         event.preventDefault();
-        typeIcon.removeChild(typeIcon.firstElementChild);
+
+        // reset card
+        if (typeIcon.hasChildNodes()) {
+            typeIcon.removeChild(typeIcon.firstElementChild);
+        }
+       
         const searchValue = searchBar.value.toLowerCase();
+        
         console.log(searchValue);
 
         searchBar.style.display = 'none';
