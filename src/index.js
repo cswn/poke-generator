@@ -109,6 +109,7 @@ card.appendChild(content);
     this.pokemonTypeDisplay = function() {
         if (type === 'bug') {
             card.style.background = '#7dff00';
+            card.style.color = 'black';
             typeIcon.appendChild(bugType);
         } else if (type === 'dark') {
             card.style.background = '#071416';
@@ -116,51 +117,67 @@ card.appendChild(content);
             typeIcon.appendChild(darkType);
         } else if (type === 'dragon') {
             card.style.background = '#4a4c09';
+            card.style.color = 'black';
             typeIcon.appendChild(dragonType);
         } else if (type === 'electric') {
             card.style.background = '#e0d530';
+            card.style.color = 'black';
             typeIcon.appendChild(electricType);
         } else if (type === 'fairy') {
             card.style.background = '#ff0698';
+            card.style.color = 'black';
             typeIcon.appendChild(fairyType);
         } else if (type === 'fighting') {
             card.style.background = '#ff9c00';
+            card.style.color = 'black';
             typeIcon.appendChild(fightingType);
         } else if (type === 'fire') {
             card.style.background = '#ff3b00';
+            card.style.color = 'black';
             typeIcon.appendChild(fireType);
         } else if (type === 'flying') {
             card.style.background = '#8b8b93';
+            card.style.color = 'black';
             typeIcon.appendChild(flyingType);
         } else if (type === 'ghost') {
             card.style.background = '#BC00E5';
+            card.style.color = 'black';
             typeIcon.appendChild(ghostType);
         } else if (type === 'grass') {
             card.style.background = '#b1ff00';
+            card.style.color = 'black';
             typeIcon.appendChild(grassType);
         } else if (type === 'ground') {
             card.style.background = '#e69138';
+            card.style.color = 'black';
             typeIcon.appendChild(groundType);
         } else if (type === 'ice') {
             card.style.background = '#7FC8FF';
+            card.style.color = 'black';
             typeIcon.appendChild(iceType);
         } else if (type === 'normal') {
             card.style.background = '#d6d6d6';
+            card.style.color = 'black';
             typeIcon.appendChild(normalType);
         } else if (type === 'poison') {
             card.style.background = '#aa2fef';
+            card.style.color = 'black';
             typeIcon.appendChild(poisonType);
         } else if (type === 'psychic') {
             card.style.background = '#a52ad2';
+            card.style.color = 'black';
             typeIcon.appendChild(psychicType);
         } else if (type === 'rock') {
             card.style.background = '#b45f06';
+            card.style.color = 'black';
             typeIcon.appendChild(rockType);
         } else if (type === 'steel') {
             card.style.background = '#6b6b6b';
+            card.style.color = 'black';
             typeIcon.appendChild(steelType);
         } else if (type === 'water') {
             card.style.background = '#19d3ff';
+            card.style.color = 'black';
             typeIcon.appendChild(waterType);
         } 
     }
@@ -193,7 +210,9 @@ function generateRandomPokemon() {
         let pokeID = res.data.id;
         const pokemonInfo = res.data.types;
         const imageSrc = res.data.sprites.front_default;
-        pic.innerHTML = ('<img src="' + imageSrc + '">');
+        const pokePic = document.createElement('img')
+        pokePic.src = imageSrc;
+        pic.appendChild(pokePic);
             
         if (pokemonInfo.length === 1) {
     
@@ -225,17 +244,16 @@ function generateRandomPokemon() {
 }
 
 function generateFromSearch(searchedName) {
-
-    // let theChosenOne = '';
     
     axios.get('https://pokeapi.co/api/v2/pokemon/' + searchedName).then((res) => {
         
-        // theChosenOne += searchedName;
         name.innerText = searchedName;
         let pokeID = res.data.id;
         let pokemonInfo = res.data.types;
         const imageSrc = res.data.sprites.front_default;
-        pic.innerHTML = ('<img src="' + imageSrc + '">');
+        const pokePic = document.createElement('img')
+        pokePic.src = imageSrc;
+        pic.appendChild(pokePic);
 
         if (pokemonInfo.length === 1) {
     
@@ -260,6 +278,9 @@ function generateFromSearch(searchedName) {
         card.style.background = 'lightblue';
         name.innerText = '';
         content.innerText = '';
+        if (pic.hasChildNodes()) {
+            pic.removeChild(pic.firstElementChild);
+        }
 
         setTimeout(() => {
             errorMessage.style.display = 'none';
@@ -279,6 +300,9 @@ reload.addEventListener('click', () => {
     // reset card
     if (typeIcon.hasChildNodes()) {
         typeIcon.removeChild(typeIcon.firstElementChild);
+    }
+    if (pic.hasChildNodes()) {
+        pic.removeChild(pic.firstElementChild);
     }
     generateRandomPokemon();
     
