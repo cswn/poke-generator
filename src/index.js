@@ -248,7 +248,14 @@ function generateRandomPokemon() {
 function generateFromSearch(searchedName) {
     
     axios.get('https://pokeapi.co/api/v2/pokemon/' + searchedName).then((res) => {
-        
+    
+        if (typeIcon.hasChildNodes()) {
+            typeIcon.removeChild(typeIcon.firstElementChild);
+        }
+        if (pic.hasChildNodes()) {
+            pic.removeChild(pic.firstElementChild);
+        }
+
         name.innerText = searchedName;
         let pokeID = res.data.id;
         let pokemonInfo = res.data.types;
@@ -277,12 +284,6 @@ function generateFromSearch(searchedName) {
 
         errorMessage.style.display = '';
         errorMessage.innerText = "That isn't a pokemon!";
-        card.style.background = 'lightblue';
-        name.innerText = '';
-        content.innerText = '';
-        if (pic.hasChildNodes()) {
-            pic.removeChild(pic.firstElementChild);
-        }
 
         setTimeout(() => {
             errorMessage.style.display = 'none';
@@ -323,14 +324,6 @@ searchBar.addEventListener('keypress', (event) => {
 
         event.preventDefault();
 
-        // reset card
-        if (typeIcon.hasChildNodes()) {
-            typeIcon.removeChild(typeIcon.firstElementChild);
-        }
-        if (pic.hasChildNodes()) {
-            pic.removeChild(pic.firstElementChild);
-        }
-       
         const searchValue = searchBar.value.toLowerCase();
         
         console.log(searchValue);
