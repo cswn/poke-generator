@@ -9,32 +9,32 @@
 </head>
 <body>
 
-    <div id="page-header">
-        <h1>Welcome to the Poke-Generator</h1>
-        <div id="page-functions">
-            <div class="poke-button" id="page-reloader">New random Pokémon</div>
-            <div class="poke-button" id="poke-search">Search for a Pokémon</div>
-            <div id="poke-search-field">
+    <header class="header">
+        <h1 class="header__title">Welcome to the Poke-Generator</h1>
+        <div class="page-functions">
+            <div class="poke-button page-reloader">New random Pokémon</div>
+            <div class="poke-button poke-search">Search for a Pokémon</div>
+            <div class="poke-search-field">
                 <form>
-                    <input type="text" id="pokeSearchInput" />
+                    <input type="text" class="pokeSearchInput"/>
                 </form>
             </div>
         </div>
-        <div id="error-message"></div>
-    </div>
+        <div class="error-message"></div>
+    </header>
 
-    <div id="container">
+    <div class="container">
         <div class="card">
-            <div id="header">
+            <div class="card__top">
                 <div id="name_of_pokemon"></div>
                 <div id="type_icon"></div>
             </div>
-            <div id="pic"></div>
-            <div id="poke-info"></div>
+            <div class="card__pic"></div>
+            <div class="poke-info"></div>
         </div>
     </div>
     
-    <script src="bundle.js"></script>
+    <script src="./bundle.js"></script>
 
 </body>
 </html>

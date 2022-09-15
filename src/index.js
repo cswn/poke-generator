@@ -78,23 +78,22 @@ const waterType = new Image();
 waterType.classList.add('type_icon');
 waterType.src = water;
 
-const KEY_ENTER = 13;
-const container = document.getElementById('container');
+const container = document.querySelector('.container');
 const card = document.querySelector('.card');
-const pic = document.getElementById('pic');
-const header = document.getElementById('header');
+const pic = document.querySelector('.card__pic');
+const cardTop = document.querySelector('.card__top');
 const name = document.getElementById('name_of_pokemon');
 const typeIcon = document.getElementById('type_icon');
-const content = document.getElementById('poke-info');
-const reload = document.getElementById('page-reloader');
-const errorMessage = document.getElementById('error-message');
-const searchButton = document.getElementById('poke-search');
-const searchBar = document.getElementById('pokeSearchInput');
+const content = document.querySelector('.poke-info');
+const reload = document.querySelector('.page-reloader');
+const errorMessage = document.querySelector('.error-message');
+const searchButton = document.querySelector('.poke-search');
+const searchBar = document.querySelector('.pokeSearchInput');
 searchBar.style.display = 'none';
 errorMessage.style.display = 'none';
 container.appendChild(card);
-card.appendChild(header);
-header.appendChild(name);
+card.appendChild(cardTop);
+cardTop.appendChild(name);
 card.appendChild(pic);
 card.appendChild(content);
 
@@ -107,7 +106,7 @@ card.appendChild(content);
         this.type = type;
         this.id = id;
         content.innerText = 'ID: ' + id;
-        this.pokemonTypeDisplay = function () {
+        this.pokemonTypeDisplay = function() {
             if (type === 'bug') {
                 card.style.background = '#7dff00';
                 card.style.color = 'black';
