@@ -313,6 +313,7 @@ reload.addEventListener('click', () => {
 searchButton.addEventListener('click', () => {
 
     searchBar.style.display = '';
+    searchBar.focus();
     searchButton.style.display = 'none';
     
 }) 
