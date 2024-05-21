@@ -1,4 +1,5 @@
 # poke-generator
-Random Pokemon generator made with PokeAPI, Axios, and Webpack
 
-This program returns a random Pokemon, its ID, and its type(s) in your browser. Just for fun :)
+Random Pokemon generator created using Go, Templ, Tailwind, and HTMX, with data from the PokeAPI.
+
+Just for fun :)
