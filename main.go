@@ -5,6 +5,7 @@ import (
 	"net/http"
 
 	"github.com/a-h/templ"
+	"github.com/cswn/poke-generator/handler"
 	"github.com/cswn/poke-generator/view"
 	"github.com/cswn/poke-generator/view/layout"
 	"github.com/cswn/poke-generator/view/partial"
@@ -25,6 +26,7 @@ func main() {
 
 	c := layout.Base(view.Index(partial.Card("Bulbasaur")))
 	http.Handle("/", templ.Handler(c))
+	http.HandleFunc("/new", handler.GetRandomPokemonHandler)
 
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }

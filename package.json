@@ -9,15 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/claraswan/poke-generator.git"
+    "url": "git+https://github.com/cswn/poke-generator.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/claraswan/poke-generator/issues"
+    "url": "https://github.com/cswn/poke-generator/issues"
   },
-  "homepage": "https://github.com/claraswan/poke-generator#readme",
+  "homepage": "https://github.com/cswn/poke-generator#readme",
   "devDependencies": {
     "tailwindcss": "^3.4.3"
   }

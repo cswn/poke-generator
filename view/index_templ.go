@@ -23,7 +23,7 @@ func Index(card templ.Component) templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<header><h1 class=\"text-center text-3xl font-bold\">Poke-Generator</h1></header><div class=\"flex justify-center flex-column mt-10\"><!-- HTMX here --><button class=\"btn bg-teal-200 p-4 rounded-lg\">generate new Pokemon</button><div>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<header><h1 class=\"text-center text-3xl font-bold\">Poke-Generator</h1></header><div class=\"flex flex-col justify-center column mt-10\"><button hx-get=\"/new\" hx-target=\"#pokemon\" class=\"btn bg-teal-200 p-4 rounded-lg\">generate new Pokemon</button><div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -31,7 +31,7 @@ func Index(card templ.Component) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</div></div>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</div><div id=\"pokemon\" class=\"border-solid border-2 border-sky-500 p-20\"></div></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
