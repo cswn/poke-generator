@@ -13,6 +13,12 @@ import (
 )
 
 func GetRandomPokemonHandler(w http.ResponseWriter, r *http.Request) {
+	data, _ := GetRandomPokemon()
+
+	json.NewEncoder(w).Encode(data)
+}
+
+func GetRandomPokemon() (internals.Pokemon, error) {
 	pokemonNumber := rand.Intn(1025)
 	URL := fmt.Sprintf("https://pokeapi.co/api/v2/pokemon/%s", strconv.Itoa(pokemonNumber))
 
@@ -34,4 +40,10 @@ func GetRandomPokemonHandler(w http.ResponseWriter, r *http.Request) {
 	var pokemonStruct internals.Pokemon
 	// this de-serializes JSON data to our native Golang data
 	json.Unmarshal(body, &pokemonStruct)
+
+	if err := json.NewDecoder(resp.Body).Decode(&pokemonStruct); err != nil {
+		return pokemonStruct, err
+	}
+
+	return pokemonStruct, nil
 }

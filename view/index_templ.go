@@ -10,7 +10,12 @@ import "context"
 import "io"
 import "bytes"
 
-func Index(card templ.Component) templ.Component {
+import (
+	"github.com/cswn/poke-generator/internals"
+	"github.com/cswn/poke-generator/view/partial"
+)
+
+func Index(data internals.Pokemon) templ.Component {
 	return templ.ComponentFunc(func(ctx context.Context, templ_7745c5c3_W io.Writer) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templ_7745c5c3_W.(*bytes.Buffer)
 		if !templ_7745c5c3_IsBuffer {
@@ -23,15 +28,15 @@ func Index(card templ.Component) templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<header><h1 class=\"text-center text-3xl font-bold\">Poke-Generator</h1></header><div class=\"flex flex-col justify-center column mt-10\"><button hx-get=\"/new\" hx-target=\"#pokemon\" class=\"btn bg-teal-200 p-4 rounded-lg\">generate new Pokemon</button><div>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<header><h1 class=\"text-center text-3xl font-bold\">Poke-Generator</h1></header><div class=\"flex flex-col justify-center m-10 items-center\"><button hx-get=\"/new\" hx-target=\"#pokemon\" class=\"btn bg-teal-200 p-4 rounded-lg\">generate new Pokemon</button><div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = card.Render(ctx, templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = partial.Card(data.Name).Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</div><div id=\"pokemon\" class=\"border-solid border-2 border-sky-500 p-20\"></div></div>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</div><div id=\"pokemon\" class=\"box-border h-32 w-32 p-4 border-solid border-2 border-sky-500\"></div></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

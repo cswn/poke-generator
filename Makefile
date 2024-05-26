@@ -1,2 +1,2 @@
 run:
-	templ generate && go run .
+	templ generate && npm run build && go run .

@@ -8,25 +8,17 @@ import (
 	"github.com/cswn/poke-generator/handler"
 	"github.com/cswn/poke-generator/view"
 	"github.com/cswn/poke-generator/view/layout"
-	"github.com/cswn/poke-generator/view/partial"
 )
-
-// func main() {
-// 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-// 		Card("Bulbasaur").Render(r.Context(), w)
-// 	})
-
-// 	fmt.Println("listening on 3000")
-// 	http.ListenAndServe(":3000", nil)
-// }
 
 func main() {
 	fs := http.FileServer(http.Dir("./static"))
 	http.Handle("/static/", http.StripPrefix("/static/", fs))
 
-	c := layout.Base(view.Index(partial.Card("Bulbasaur")))
+	data, _ := handler.GetRandomPokemon()
+	c := layout.Base(view.Index(data))
 	http.Handle("/", templ.Handler(c))
+
 	http.HandleFunc("/new", handler.GetRandomPokemonHandler)
 
-	log.Fatal(http.ListenAndServe(":8080", nil))
+	log.Fatal(http.ListenAndServe(":3000", nil))
 }
