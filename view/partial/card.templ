@@ -2,8 +2,19 @@ package partial
 
 import "github.com/cswn/poke-generator/internals"
 
+templ Card(p *internals.Pokemon) {
+	<div id="pokemon-card" class={ card() }>
+		<div id="header" class={ header() }>
+			<div>{ p.Name }</div>
+			<div><small>HP</small>120</div>
+		</div>
+		<div id="pic" class={ pic() }></div>
+		<div id="poke-info"></div>
+	</div>
+}
+
 css card() {
-	border: solid 24px #e1a835;
+	border: solid 24px #b3bbbe;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	background: lightblue;
 	border-radius: 15px;
@@ -14,14 +25,26 @@ css card() {
 	color: navy;
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	justify-content: space-between;
 	align-items: center;
 }
 
-templ Card(pokemon internals.Pokemon) {
-	<div id="pokemon-card" class={ card() }>
-		<div id="header">{ pokemon.Name }</div>
-		<div id="pic"></div>
-		<div id="poke-info"></div>
-	</div>
+css pic() {
+	border: solid 3px #b3bbbe;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	width: 100%;
+	height: 11rem;
+}
+
+css header() {
+	text-transform: capitalize;
+	color: #111;
+	width: 100%;
+	padding: 2px;
+	margin: 4px;
+	font-size: 22px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-family: Gill Sans Extrabold, sans-serif;
 }
