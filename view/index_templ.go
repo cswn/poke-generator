@@ -9,13 +9,14 @@ import "github.com/a-h/templ"
 import "context"
 import "io"
 import "bytes"
+import "strings"
 
 import (
-	"github.com/cswn/poke-generator/internals"
-	"github.com/cswn/poke-generator/view/partial"
+// "github.com/cswn/poke-generator/internals"
+// "github.com/cswn/poke-generator/view/partial"
 )
 
-func Index(data internals.Pokemon) templ.Component {
+func Index() templ.Component {
 	return templ.ComponentFunc(func(ctx context.Context, templ_7745c5c3_W io.Writer) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templ_7745c5c3_W.(*bytes.Buffer)
 		if !templ_7745c5c3_IsBuffer {
@@ -28,15 +29,7 @@ func Index(data internals.Pokemon) templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<header><h1 class=\"text-center text-3xl font-bold\">Poke-Generator</h1></header><div class=\"flex flex-col justify-center m-10 items-center\"><button hx-get=\"/new\" hx-target=\"#pokemon\" class=\"btn bg-teal-200 p-4 rounded-lg\">generate new Pokemon</button><div>")
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		templ_7745c5c3_Err = partial.Card(data.Name).Render(ctx, templ_7745c5c3_Buffer)
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</div><div id=\"pokemon\" class=\"box-border h-32 w-32 p-4 border-solid border-2 border-sky-500\"></div></div>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div hx-ext=\"client-side-templates\" class=\"flex flex-col justify-center m-10 items-center\"><button hx-get=\"/new\" hx-target=\"#pokemon-list\" nunjucks-template=\"#pokemon\" class=\"btn bg-teal-200 p-4 rounded-lg\">generate new Pokemon</button><script id=\"pokemon\" type=\"nunjucks\">\n            <div>{{pokemon.Name}}</div>\n        </script><div id=\"pokemon-list\"></div></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -45,4 +38,26 @@ func Index(data internals.Pokemon) templ.Component {
 		}
 		return templ_7745c5c3_Err
 	})
+}
+
+func card() templ.CSSClass {
+	var templ_7745c5c3_CSSBuilder strings.Builder
+	templ_7745c5c3_CSSBuilder.WriteString(`border:solid 10px yellow;`)
+	templ_7745c5c3_CSSBuilder.WriteString(`box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);`)
+	templ_7745c5c3_CSSBuilder.WriteString(`background:lightblue;`)
+	templ_7745c5c3_CSSBuilder.WriteString(`border-radius:8px;`)
+	templ_7745c5c3_CSSBuilder.WriteString(`padding:4px;`)
+	templ_7745c5c3_CSSBuilder.WriteString(`margin-top:80px;`)
+	templ_7745c5c3_CSSBuilder.WriteString(`width:20rem;`)
+	templ_7745c5c3_CSSBuilder.WriteString(`height:30rem;`)
+	templ_7745c5c3_CSSBuilder.WriteString(`color:navy;`)
+	templ_7745c5c3_CSSBuilder.WriteString(`display:flex;`)
+	templ_7745c5c3_CSSBuilder.WriteString(`flex-direction:column;`)
+	templ_7745c5c3_CSSBuilder.WriteString(`justify-content:center;`)
+	templ_7745c5c3_CSSBuilder.WriteString(`align-items:center;`)
+	templ_7745c5c3_CSSID := templ.CSSID(`card`, templ_7745c5c3_CSSBuilder.String())
+	return templ.ComponentCSSClass{
+		ID:    templ_7745c5c3_CSSID,
+		Class: templ.SafeCSS(`.` + templ_7745c5c3_CSSID + `{` + templ_7745c5c3_CSSBuilder.String() + `}`),
+	}
 }

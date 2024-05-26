@@ -1,19 +1,23 @@
 package layout
 
 templ Base(index templ.Component) {
-    <!DOCTYPE html>
-    <html lang="en">
-        <head>
-            <meta charset="UTF-8"/>
-            <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-            <title>Pokémon Generator</title>
-            <!-- tailwind css -->
-            <link href="/static/css/tailwind.css" rel="stylesheet"/>
-        </head>
-        <body>
-            @index
-            <!-- htmx -->
-            <script src="https://unpkg.com/htmx.org@1.9.10"></script>
-        </body>
-    </html>
+	<!DOCTYPE html>
+	<html lang="en">
+		<head>
+			<meta charset="UTF-8"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+			<title>Pokémon Generator</title>
+			<!-- tailwind css -->
+			<link href="/static/css/tailwind.css" rel="stylesheet"/>
+		</head>
+		<body>
+			<header>
+				<h1 class="text-center text-3xl font-bold">
+					Poke-Generator
+				</h1>
+			</header>
+			@index
+			<script src="https://unpkg.com/htmx.org@1.9.10"></script>
+		</body>
+	</html>
 }

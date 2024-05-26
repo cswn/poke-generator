@@ -14,8 +14,8 @@ func main() {
 	fs := http.FileServer(http.Dir("./static"))
 	http.Handle("/static/", http.StripPrefix("/static/", fs))
 
-	data, _ := handler.GetRandomPokemon()
-	c := layout.Base(view.Index(data))
+	// data, _ := handler.GetRandomPokemon()
+	c := layout.Base(view.Index())
 	http.Handle("/", templ.Handler(c))
 
 	http.HandleFunc("/new", handler.GetRandomPokemonHandler)

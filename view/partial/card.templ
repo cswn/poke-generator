@@ -2,24 +2,24 @@ package partial
 
 css card() {
 	border: solid 10px yellow;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    background: lightblue;
-    border-radius: 8px;
-    padding: 4px;
-    margin-top: 80px;
-    width: 20rem;
-    height: 30rem;
-    color: navy;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	background: lightblue;
+	border-radius: 8px;
+	padding: 4px;
+	margin-top: 80px;
+	width: 20rem;
+	height: 30rem;
+	color: navy;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
 templ Card(name string) {
-	<div class={card()}>
-		<div id="header">{name}</div>
+	<div id="pokemon-card" class={ card() }>
+		<div id="header">{ name }</div>
 		<div id="pic"></div>
 		<div id="poke-info"></div>
-    </div>
+	</div>
 }
