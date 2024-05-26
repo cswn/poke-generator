@@ -11,11 +11,6 @@ import "io"
 import "bytes"
 import "strings"
 
-import (
-// "github.com/cswn/poke-generator/internals"
-// "github.com/cswn/poke-generator/view/partial"
-)
-
 func Index() templ.Component {
 	return templ.ComponentFunc(func(ctx context.Context, templ_7745c5c3_W io.Writer) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templ_7745c5c3_W.(*bytes.Buffer)
@@ -29,7 +24,7 @@ func Index() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div hx-ext=\"client-side-templates\" class=\"flex flex-col justify-center m-10 items-center\"><button hx-get=\"/new\" hx-target=\"#pokemon-list\" nunjucks-template=\"#pokemon\" class=\"btn bg-teal-200 p-4 rounded-lg\">generate new Pokemon</button><script id=\"pokemon\" type=\"nunjucks\">\n            <div>{{pokemon.Name}}</div>\n        </script><div id=\"pokemon-list\"></div></div>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"flex flex-col justify-center m-10 items-center\"><button hx-trigger=\"load, click\" hx-get=\"/new\" hx-target=\"#pokemon\" class=\"btn bg-teal-200 p-4 rounded-lg\">New Pokémon</button><div id=\"pokemon\"></div></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

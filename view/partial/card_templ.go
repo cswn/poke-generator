@@ -11,16 +11,18 @@ import "io"
 import "bytes"
 import "strings"
 
+import "github.com/cswn/poke-generator/internals"
+
 func card() templ.CSSClass {
 	var templ_7745c5c3_CSSBuilder strings.Builder
-	templ_7745c5c3_CSSBuilder.WriteString(`border:solid 10px yellow;`)
+	templ_7745c5c3_CSSBuilder.WriteString(`border:solid 24px #e1a835;`)
 	templ_7745c5c3_CSSBuilder.WriteString(`box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);`)
 	templ_7745c5c3_CSSBuilder.WriteString(`background:lightblue;`)
-	templ_7745c5c3_CSSBuilder.WriteString(`border-radius:8px;`)
+	templ_7745c5c3_CSSBuilder.WriteString(`border-radius:15px;`)
 	templ_7745c5c3_CSSBuilder.WriteString(`padding:4px;`)
 	templ_7745c5c3_CSSBuilder.WriteString(`margin-top:80px;`)
-	templ_7745c5c3_CSSBuilder.WriteString(`width:20rem;`)
-	templ_7745c5c3_CSSBuilder.WriteString(`height:30rem;`)
+	templ_7745c5c3_CSSBuilder.WriteString(`width:30rem;`)
+	templ_7745c5c3_CSSBuilder.WriteString(`height:40rem;`)
 	templ_7745c5c3_CSSBuilder.WriteString(`color:navy;`)
 	templ_7745c5c3_CSSBuilder.WriteString(`display:flex;`)
 	templ_7745c5c3_CSSBuilder.WriteString(`flex-direction:column;`)
@@ -33,7 +35,7 @@ func card() templ.CSSClass {
 	}
 }
 
-func Card(name string) templ.Component {
+func Card(pokemon internals.Pokemon) templ.Component {
 	return templ.ComponentFunc(func(ctx context.Context, templ_7745c5c3_W io.Writer) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templ_7745c5c3_W.(*bytes.Buffer)
 		if !templ_7745c5c3_IsBuffer {
@@ -69,9 +71,9 @@ func Card(name string) templ.Component {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var4 string
-		templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(name)
+		templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(pokemon.Name)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/partial/card.templ`, Line: 21, Col: 25}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/partial/card.templ`, Line: 23, Col: 33}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
 		if templ_7745c5c3_Err != nil {

@@ -1,14 +1,16 @@
 package partial
 
+import "github.com/cswn/poke-generator/internals"
+
 css card() {
-	border: solid 10px yellow;
+	border: solid 24px #e1a835;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	background: lightblue;
-	border-radius: 8px;
+	border-radius: 15px;
 	padding: 4px;
 	margin-top: 80px;
-	width: 20rem;
-	height: 30rem;
+	width: 30rem;
+	height: 40rem;
 	color: navy;
 	display: flex;
 	flex-direction: column;
@@ -16,9 +18,9 @@ css card() {
 	align-items: center;
 }
 
-templ Card(name string) {
+templ Card(pokemon internals.Pokemon) {
 	<div id="pokemon-card" class={ card() }>
-		<div id="header">{ name }</div>
+		<div id="header">{ pokemon.Name }</div>
 		<div id="pic"></div>
 		<div id="poke-info"></div>
 	</div>

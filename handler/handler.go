@@ -1,6 +1,7 @@
 package handler
 
 import (
+	"context"
 	"encoding/json"
 	"fmt"
 	"io"
@@ -10,12 +11,15 @@ import (
 	"strconv"
 
 	"github.com/cswn/poke-generator/internals"
+	"github.com/cswn/poke-generator/view/partial"
 )
 
 func GetRandomPokemonHandler(w http.ResponseWriter, r *http.Request) {
 	data, _ := GetRandomPokemon()
 
-	json.NewEncoder(w).Encode(data)
+	// use the response writer to write a templ component
+	c := partial.Card(data)
+	c.Render(context.Background(), w)
 }
 
 func GetRandomPokemon() (internals.Pokemon, error) {
