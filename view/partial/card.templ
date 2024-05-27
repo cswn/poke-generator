@@ -23,15 +23,17 @@ templ Card(p *internals.Pokemon) {
 	>
 		<div id="header" class={ header() }>
 			<div>{ p.Name }</div>
-			<div><small style="font-size:10px;">HP </small>120</div>
-			<div style="width=15px;height=15px;">
-				@TypeIcon(p.Types[0].Type.Name)
+			<div class="flex gap-1">
+				<div><small class="text-xs">HP </small>120</div>
+				<div class="w-8 h-8">
+					@TypeIcon(p.Types[0].Type.Name)
+				</div>
 			</div>
 		</div>
 		<div id="pic" class={ pic() }>
 			@InfoBar(p.Id, "Mouse Pokemon", p.Height, p.Weight)
 		</div>
-		<div id="poke-info" class={ info() }>{ p.Types[0].Type.Name }</div>
+		<div id="poke-info" class={ info() }></div>
 	</div>
 }
 
@@ -67,12 +69,12 @@ css card() {
 
 css pic() {
 	border: solid 3px #b3bbbe;
-	width: 95%;
-	height: 11rem;
+	width: 92%;
+	height: 15rem;
 	padding: .6rem;
 	position: absolute;
-	top: 6rem;
-	left: 2.5%;
+	top: 3.4rem;
+	left: 4%;
 }
 
 css header() {

@@ -93,7 +93,7 @@ func Card(p *internals.Pokemon) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</div><div><small style=\"font-size:10px;\">HP </small>120</div><div style=\"width=15px;height=15px;\">")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</div><div class=\"flex gap-1\"><div><small class=\"text-xs\">HP </small>120</div><div class=\"w-8 h-8\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -101,7 +101,7 @@ func Card(p *internals.Pokemon) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</div></div>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</div></div></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -153,20 +153,7 @@ func Card(p *internals.Pokemon) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\">")
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		var templ_7745c5c3_Var11 string
-		templ_7745c5c3_Var11, templ_7745c5c3_Err = templ.JoinStringErrs(p.Types[0].Type.Name)
-		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/partial/card.templ`, Line: 34, Col: 61}
-		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var11))
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</div></div>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\"></div></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -216,12 +203,12 @@ func card() templ.CSSClass {
 func pic() templ.CSSClass {
 	var templ_7745c5c3_CSSBuilder strings.Builder
 	templ_7745c5c3_CSSBuilder.WriteString(`border:solid 3px #b3bbbe;`)
-	templ_7745c5c3_CSSBuilder.WriteString(`width:95%;`)
-	templ_7745c5c3_CSSBuilder.WriteString(`height:11rem;`)
+	templ_7745c5c3_CSSBuilder.WriteString(`width:92%;`)
+	templ_7745c5c3_CSSBuilder.WriteString(`height:15rem;`)
 	templ_7745c5c3_CSSBuilder.WriteString(`padding:.6rem;`)
 	templ_7745c5c3_CSSBuilder.WriteString(`position:absolute;`)
-	templ_7745c5c3_CSSBuilder.WriteString(`top:6rem;`)
-	templ_7745c5c3_CSSBuilder.WriteString(`left:2.5%;`)
+	templ_7745c5c3_CSSBuilder.WriteString(`top:3.4rem;`)
+	templ_7745c5c3_CSSBuilder.WriteString(`left:4%;`)
 	templ_7745c5c3_CSSID := templ.CSSID(`pic`, templ_7745c5c3_CSSBuilder.String())
 	return templ.ComponentCSSClass{
 		ID:    templ_7745c5c3_CSSID,

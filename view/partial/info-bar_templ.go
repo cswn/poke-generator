@@ -25,14 +25,14 @@ func InfoBar(id int, species string, height int, weight int) templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<svg width=\"400\" height=\"22\" style=\"position: absolute; bottom: -2rem;\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"100%\" height=\"100%\" fill=\"#b3bbbe\"></rect> <text x=\"200\" y=\"13\" font-size=\"10\" text-anchor=\"middle\" fill=\"#3b3b3e\" font-weight=\"bold\">NO. ")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<svg width=\"426\" height=\"30\" xmlns=\"http://www.w3.org/2000/svg\" style=\"font-family:&#39;Gill Sans&#39;;position: absolute; bottom: -1.9rem; left: -1rem;\"><defs><linearGradient id=\"center\" x1=\"0%\" x2=\"0%\" y1=\"40%\" y2=\"100%\" spreadMethod=\"reflect\"><stop offset=\"0%\" stop-color=\"#eff5f6\"></stop> <stop offset=\"100%\" stop-color=\"#b0b1b3\"></stop></linearGradient> <linearGradient id=\"outside\" x1=\"0%\" x2=\"0%\" y1=\"40%\" y2=\"100%\"><stop offset=\"10%\" stop-color=\"#e1e2e2\"></stop> <stop offset=\"20%\" stop-color=\"#eff5f6\"></stop> <stop offset=\"100%\" stop-color=\"#737275\"></stop></linearGradient></defs> <rect width=\"100%\" height=\"24\" fill=\"url(#outside)\" stroke-width=\"10px\" rx=\"10px\" ry=\"10px\" stroke-linejoin=\"round\"></rect> <rect x=\"6\" y=\"2\" width=\"97%\" height=\"18\" fill=\"#adadad\" stroke-width=\"10px\" rx=\"10px\" ry=\"10px\" stroke-linejoin=\"round\"></rect> <rect x=\"8\" y=\"3\" width=\"96%\" height=\"16\" fill=\"url(#center)\" stroke-width=\"10px\" rx=\"10px\" ry=\"10px\" stroke-linejoin=\"round\"></rect> <text x=\"213\" y=\"15\" font-size=\"9\" text-anchor=\"middle\" fill=\"#3b3b3e\" style=\"font-family:&#39;Gill Sans&#39;, sans-serif;\">NO. ")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var2 string
 		templ_7745c5c3_Var2, templ_7745c5c3_Err = templ.JoinStringErrs(strconv.Itoa(id))
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/partial/info-bar.templ`, Line: 9, Col: 25}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/partial/info-bar.templ`, Line: 42, Col: 25}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var2))
 		if templ_7745c5c3_Err != nil {
@@ -45,7 +45,7 @@ func InfoBar(id int, species string, height int, weight int) templ.Component {
 		var templ_7745c5c3_Var3 string
 		templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(species)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/partial/info-bar.templ`, Line: 9, Col: 38}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/partial/info-bar.templ`, Line: 42, Col: 38}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
 		if templ_7745c5c3_Err != nil {
@@ -58,7 +58,7 @@ func InfoBar(id int, species string, height int, weight int) templ.Component {
 		var templ_7745c5c3_Var4 string
 		templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(strconv.Itoa(height))
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/partial/info-bar.templ`, Line: 9, Col: 68}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/partial/info-bar.templ`, Line: 42, Col: 68}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
 		if templ_7745c5c3_Err != nil {
@@ -71,7 +71,7 @@ func InfoBar(id int, species string, height int, weight int) templ.Component {
 		var templ_7745c5c3_Var5 string
 		templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(strconv.Itoa(weight))
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/partial/info-bar.templ`, Line: 9, Col: 98}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/partial/info-bar.templ`, Line: 42, Col: 98}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var5))
 		if templ_7745c5c3_Err != nil {
