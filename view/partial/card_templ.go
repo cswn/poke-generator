@@ -93,7 +93,15 @@ func Card(p *internals.Pokemon) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</div><div><small style=\"font-size:10px;\">HP</small>120</div></div>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</div><div><small style=\"font-size:10px;\">HP </small>120</div><div style=\"width=15px;height=15px;\">")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = TypeIcon(p.Types[0].Type.Name).Render(ctx, templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</div></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -152,7 +160,7 @@ func Card(p *internals.Pokemon) templ.Component {
 		var templ_7745c5c3_Var11 string
 		templ_7745c5c3_Var11, templ_7745c5c3_Err = templ.JoinStringErrs(p.Types[0].Type.Name)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/partial/card.templ`, Line: 31, Col: 61}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/partial/card.templ`, Line: 34, Col: 61}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var11))
 		if templ_7745c5c3_Err != nil {

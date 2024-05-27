@@ -24,6 +24,9 @@ templ Card(p *internals.Pokemon) {
 		<div id="header" class={ header() }>
 			<div>{ p.Name }</div>
 			<div><small style="font-size:10px;">HP </small>120</div>
+			<div style="width=15px;height=15px;">
+				@TypeIcon(p.Types[0].Type.Name)
+			</div>
 		</div>
 		<div id="pic" class={ pic() }>
 			@InfoBar(p.Id, "Mouse Pokemon", p.Height, p.Weight)
