@@ -7,18 +7,24 @@ templ Card(p *internals.Pokemon) {
 		id="pokemon-card"
 		class={
 			card(),
-			templ.KV(electric(), p.Types[0].Type.Name == "electric"),
-			templ.KV(water(), p.Types[0].Type.Name == "water"),
-			templ.KV(grass(), p.Types[0].Type.Name == "grass"),
-			templ.KV(fire(), p.Types[0].Type.Name == "fire"),
+			templ.KV(bug(), p.Types[0].Type.Name == "bug"),
 			templ.KV(dark(), p.Types[0].Type.Name == "dark"),
 			templ.KV(dragon(), p.Types[0].Type.Name == "dragon"),
-			templ.KV(fighting(), p.Types[0].Type.Name == "fighting"),
+			templ.KV(electric(), p.Types[0].Type.Name == "electric"),
 			templ.KV(fairy(), p.Types[0].Type.Name == "fairy"),
-			templ.KV(steel(), p.Types[0].Type.Name == "steel"),
+			templ.KV(fighting(), p.Types[0].Type.Name == "fighting"),
+			templ.KV(fire(), p.Types[0].Type.Name == "fire"),
+			templ.KV(flying(), p.Types[0].Type.Name == "flying"),
+			templ.KV(ghost(), p.Types[0].Type.Name == "ghost"),
+			templ.KV(grass(), p.Types[0].Type.Name == "grass"),
+			templ.KV(ground(), p.Types[0].Type.Name == "ground"),
+			templ.KV(ice(), p.Types[0].Type.Name == "ice"),
 			templ.KV(normal(), p.Types[0].Type.Name == "normal"),
-			templ.KV(rock(), p.Types[0].Type.Name == "rock"),
+			templ.KV(poison(), p.Types[0].Type.Name == "poison"),
 			templ.KV(psychic(), p.Types[0].Type.Name == "psychic"),
+			templ.KV(rock(), p.Types[0].Type.Name == "rock"),
+			templ.KV(steel(), p.Types[0].Type.Name == "steel"),
+			templ.KV(water(), p.Types[0].Type.Name == "water"),
 		}
 	>
 		<div id="header" class={ header() }>
@@ -31,26 +37,30 @@ templ Card(p *internals.Pokemon) {
 			</div>
 		</div>
 		<div id="pic" class={ pic() }>
-			@InfoBar(p.Id, "Mouse Pokemon", p.Height, p.Weight)
+			@InfoBar(p.Id, "??? Pokemon", p.Height, p.Weight)
 		</div>
 		<div id="poke-info" class={ info() }></div>
 	</div>
 }
 
-var colorBorder = "#b3bbbe"
-
-var colorElectric = "#ffd030"
-var colorWater = "#56bfeb"
+var colorBug = "#cef17e"
 var colorDark = "#002a27"
-var colorPsychic = "#b470ab"
-var colorGrass = "#90c843"
-var colorFire = "#f6a46f"
-var colorNormal = "#e5dde5"
-var colorFighting = "#efb06b"
 var colorDragon = "#dec872"
-var colorSteel = "#dce0e1"
+var colorElectric = "#ffd030"
 var colorFairy = "#e7358a"
+var colorFighting = "#efb06b"
+var colorFire = "#f6a46f"
+var colorFlying = "#c3d3da"
+var colorGhost = "#ba9fbe"
+var colorGrass = "#90c843"
+var colorGround = "#deb482"
+var colorIce = "#d2eefa"
+var colorNormal = "#e5dde5"
+var colorPoison = "#7a51a1"
+var colorPsychic = "#b470ab"
 var colorRock = "#e7cbb2"
+var colorSteel = "#dce0e1"
+var colorWater = "#56bfeb"
 
 css card() {
 	border: solid 24px #b3bbbe;
@@ -68,7 +78,7 @@ css card() {
 }
 
 css pic() {
-	border: solid 3px #b3bbbe;
+	border: solid 3px #e1e2e2;
 	width: 92%;
 	height: 15rem;
 	padding: .6rem;
@@ -95,16 +105,10 @@ css info() {
 	bottom: 1rem;
 }
 
-css electric() {
-	background: { colorElectric };
-}
+// type color classes
 
-css water() {
-	background: { colorWater };
-}
-
-css grass() {
-	background: { colorGrass };
+css bug() {
+	background: { colorBug };
 }
 
 css dark() {
@@ -112,8 +116,16 @@ css dark() {
 	color: #fff;
 }
 
-css steel() {
-	background: { colorSteel };
+css dragon() {
+	background: { colorDragon };
+}
+
+css electric() {
+	background: { colorElectric };
+}
+
+css fairy() {
+	background: { colorFairy };
 }
 
 css fighting() {
@@ -124,22 +136,46 @@ css fire() {
 	background: { colorFire };
 }
 
+css flying() {
+	background: { colorFlying };
+}
+
+css ghost() {
+	background: { colorGhost };
+}
+
+css grass() {
+	background: { colorGrass };
+}
+
+css ground() {
+	background: { colorGround };
+}
+
+css ice() {
+	background: { colorIce };
+}
+
 css normal() {
 	background: { colorNormal };
 }
 
-css dragon() {
-	background: { colorDragon };
+css poison() {
+	background: { colorPoison };
 }
 
-css fairy() {
-	background: { colorFairy };
+css psychic() {
+	background: { colorPsychic };
 }
 
 css rock() {
 	background: { colorRock };
 }
 
-css psychic() {
-	background: { colorPsychic };
+css steel() {
+	background: { colorSteel };
+}
+
+css water() {
+	background: { colorWater };
 }

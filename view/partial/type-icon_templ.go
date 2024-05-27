@@ -88,8 +88,8 @@ func TypeIcon(pokemonType string) templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-		} else if pokemonType == "posion" {
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<img src=\"/static/icons/posion.svg\" alt=\"type-icon\" height=\"30\" width=\"30\">")
+		} else if pokemonType == "poison" {
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<img src=\"/static/icons/poison.svg\" alt=\"type-icon\" height=\"30\" width=\"30\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
