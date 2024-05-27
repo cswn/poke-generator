@@ -26,8 +26,7 @@ func Card(p *internals.Pokemon) templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		var templ_7745c5c3_Var2 = []any{
-			card(),
+		var templ_7745c5c3_Var2 = []any{card(),
 			templ.KV(bug(), p.Types[0].Type.Name == "bug"),
 			templ.KV(dark(), p.Types[0].Type.Name == "dark"),
 			templ.KV(dragon(), p.Types[0].Type.Name == "dragon"),
@@ -46,7 +45,7 @@ func Card(p *internals.Pokemon) templ.Component {
 			templ.KV(rock(), p.Types[0].Type.Name == "rock"),
 			templ.KV(steel(), p.Types[0].Type.Name == "steel"),
 			templ.KV(water(), p.Types[0].Type.Name == "water"),
-		}
+			"font-cabin"}
 		templ_7745c5c3_Err = templ.RenderCSSItems(ctx, templ_7745c5c3_Buffer, templ_7745c5c3_Var2...)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
@@ -86,20 +85,20 @@ func Card(p *internals.Pokemon) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\"><div>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\"><div class=\"font-medium\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var6 string
 		templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(p.Name)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/partial/card.templ`, Line: 31, Col: 16}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/partial/card.templ`, Line: 30, Col: 36}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</div><div class=\"flex gap-1\"><div><small class=\"text-xs\">HP </small>120</div><div class=\"w-8 h-8\">")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</div><div class=\"flex gap-1 font-medium justify-center items-center\"><div style=\"font-size:28px;\"><small style=\"font-size:8px; line-height:14px;\" class=\"font-black\">HP</small>120</div><div class=\"w-8 h-8\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -201,7 +200,6 @@ func card() templ.CSSClass {
 	templ_7745c5c3_CSSBuilder.WriteString(`height:40rem;`)
 	templ_7745c5c3_CSSBuilder.WriteString(`color:#111;`)
 	templ_7745c5c3_CSSBuilder.WriteString(`position:relative;`)
-	templ_7745c5c3_CSSBuilder.WriteString(`font-family:Gill Sans Extrabold, sans-serif;`)
 	templ_7745c5c3_CSSBuilder.WriteString(`box-shadow:.6rem .5rem 0 #a2acb0, 1.2rem 1.0rem 0 #96a1a5, 1.8rem 1.5rem 0 #89969a, 2.4rem 2rem 0 #7e8c91;`)
 	templ_7745c5c3_CSSID := templ.CSSID(`card`, templ_7745c5c3_CSSBuilder.String())
 	return templ.ComponentCSSClass{
@@ -217,7 +215,7 @@ func pic() templ.CSSClass {
 	templ_7745c5c3_CSSBuilder.WriteString(`height:15rem;`)
 	templ_7745c5c3_CSSBuilder.WriteString(`padding:.6rem;`)
 	templ_7745c5c3_CSSBuilder.WriteString(`position:absolute;`)
-	templ_7745c5c3_CSSBuilder.WriteString(`top:3.4rem;`)
+	templ_7745c5c3_CSSBuilder.WriteString(`top:2.6rem;`)
 	templ_7745c5c3_CSSBuilder.WriteString(`left:4%;`)
 	templ_7745c5c3_CSSID := templ.CSSID(`pic`, templ_7745c5c3_CSSBuilder.String())
 	return templ.ComponentCSSClass{
@@ -233,8 +231,8 @@ func header() templ.CSSClass {
 	templ_7745c5c3_CSSBuilder.WriteString(`left:0;`)
 	templ_7745c5c3_CSSBuilder.WriteString(`text-transform:capitalize;`)
 	templ_7745c5c3_CSSBuilder.WriteString(`width:100%;`)
-	templ_7745c5c3_CSSBuilder.WriteString(`padding:.6rem;`)
-	templ_7745c5c3_CSSBuilder.WriteString(`font-size:22px;`)
+	templ_7745c5c3_CSSBuilder.WriteString(`padding:0 .4rem .4rem .4rem;`)
+	templ_7745c5c3_CSSBuilder.WriteString(`font-size:26px;`)
 	templ_7745c5c3_CSSBuilder.WriteString(`display:flex;`)
 	templ_7745c5c3_CSSBuilder.WriteString(`justify-content:space-between;`)
 	templ_7745c5c3_CSSBuilder.WriteString(`align-items:center;`)

@@ -23,7 +23,7 @@ func Base(index templ.Component) templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<!doctype html><html lang=\"en\"><head><meta charset=\"UTF-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"><title>Pokémon Generator</title><link href=\"/static/css/tailwind.css\" rel=\"stylesheet\"><script src=\"https://unpkg.com/htmx.org@1.9.10\"></script></head><body><header><h1 class=\"text-center text-3xl font-bold mt-4\">Poke-Generator</h1></header>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<!doctype html><html lang=\"en\"><head><meta charset=\"UTF-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"><title>Pokémon Generator</title><link href=\"/static/css/tailwind.css\" rel=\"stylesheet\"><link rel=\"preconnect\" href=\"https://fonts.googleapis.com\"><link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin><link href=\"https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&amp;display=swap\" rel=\"stylesheet\"><script src=\"https://unpkg.com/htmx.org@1.9.10\"></script></head><body><header><h1 class=\"flex justify-center items-center mt-4\"><a href=\"https://fontmeme.com/bend-images/\" style=\"height:270px;\"><img src=\"https://fontmeme.com/permalink/240527/6fd3f538a1c86824f20961916910512b.png\" alt=\"poke-generator\" border=\"0\"></a></h1></header>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

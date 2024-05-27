@@ -2,7 +2,11 @@
 export default {
   content: ["./view/**/*.templ"], // this is where our templates are located
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        cabin: ["Cabin", "sans-serif"],
+      },
+    },
   },
   plugins: [],
 }

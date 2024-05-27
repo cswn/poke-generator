@@ -5,8 +5,7 @@ import "github.com/cswn/poke-generator/internals"
 templ Card(p *internals.Pokemon) {
 	<div
 		id="pokemon-card"
-		class={
-			card(),
+		class={ card(),
 			templ.KV(bug(), p.Types[0].Type.Name == "bug"),
 			templ.KV(dark(), p.Types[0].Type.Name == "dark"),
 			templ.KV(dragon(), p.Types[0].Type.Name == "dragon"),
@@ -25,12 +24,12 @@ templ Card(p *internals.Pokemon) {
 			templ.KV(rock(), p.Types[0].Type.Name == "rock"),
 			templ.KV(steel(), p.Types[0].Type.Name == "steel"),
 			templ.KV(water(), p.Types[0].Type.Name == "water"),
-		}
+			"font-cabin" }
 	>
 		<div id="header" class={ header() }>
-			<div>{ p.Name }</div>
-			<div class="flex gap-1">
-				<div><small class="text-xs">HP </small>120</div>
+			<div class="font-medium">{ p.Name }</div>
+			<div class="flex gap-1 font-medium justify-center items-center">
+				<div style="font-size:28px;"><small style="font-size:8px; line-height:14px;" class="font-black">HP</small>120</div>
 				<div class="w-8 h-8">
 					@TypeIcon(p.Types[0].Type.Name)
 				</div>
@@ -73,7 +72,6 @@ css card() {
 	height: 40rem;
 	color: #111;
 	position: relative;
-	font-family: Gill Sans Extrabold, sans-serif;
 	box-shadow: .6rem .5rem 0 #a2acb0, 1.2rem 1.0rem 0 #96a1a5, 1.8rem 1.5rem 0 #89969a, 2.4rem 2rem 0 #7e8c91;
 }
 
@@ -83,7 +81,7 @@ css pic() {
 	height: 15rem;
 	padding: .6rem;
 	position: absolute;
-	top: 3.4rem;
+	top: 2.6rem;
 	left: 4%;
 }
 
@@ -93,8 +91,8 @@ css header() {
 	left: 0;
 	text-transform: capitalize;
 	width: 100%;
-	padding: .6rem;
-	font-size: 22px;
+	padding: 0 .4rem .4rem .4rem;
+	font-size: 26px;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
