@@ -26,7 +26,21 @@ func Card(p *internals.Pokemon) templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		var templ_7745c5c3_Var2 = []any{card()}
+		var templ_7745c5c3_Var2 = []any{
+			card(),
+			templ.KV(electric(), p.Types[0].Type.Name == "electric"),
+			templ.KV(water(), p.Types[0].Type.Name == "water"),
+			templ.KV(grass(), p.Types[0].Type.Name == "grass"),
+			templ.KV(fire(), p.Types[0].Type.Name == "fire"),
+			templ.KV(dark(), p.Types[0].Type.Name == "dark"),
+			templ.KV(dragon(), p.Types[0].Type.Name == "dragon"),
+			templ.KV(fighting(), p.Types[0].Type.Name == "fighting"),
+			templ.KV(fairy(), p.Types[0].Type.Name == "fairy"),
+			templ.KV(steel(), p.Types[0].Type.Name == "steel"),
+			templ.KV(normal(), p.Types[0].Type.Name == "normal"),
+			templ.KV(rock(), p.Types[0].Type.Name == "rock"),
+			templ.KV(psychic(), p.Types[0].Type.Name == "psychic"),
+		}
 		templ_7745c5c3_Err = templ.RenderCSSItems(ctx, templ_7745c5c3_Buffer, templ_7745c5c3_Var2...)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
@@ -73,13 +87,13 @@ func Card(p *internals.Pokemon) templ.Component {
 		var templ_7745c5c3_Var6 string
 		templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(p.Name)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/partial/card.templ`, Line: 8, Col: 16}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/partial/card.templ`, Line: 25, Col: 16}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</div><div><small>HP</small>120</div></div>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</div><div><small style=\"font-size:10px;\">HP</small>120</div></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -101,7 +115,50 @@ func Card(p *internals.Pokemon) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\"></div><div id=\"poke-info\"></div></div>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\">")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = InfoBar(p.Id, "Mouse Pokemon", p.Height, p.Weight).Render(ctx, templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</div>")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		var templ_7745c5c3_Var9 = []any{info()}
+		templ_7745c5c3_Err = templ.RenderCSSItems(ctx, templ_7745c5c3_Buffer, templ_7745c5c3_Var9...)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div id=\"poke-info\" class=\"")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		var templ_7745c5c3_Var10 string
+		templ_7745c5c3_Var10, templ_7745c5c3_Err = templ.JoinStringErrs(templ.CSSClasses(templ_7745c5c3_Var9).String())
+		if templ_7745c5c3_Err != nil {
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/partial/card.templ`, Line: 1, Col: 0}
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var10))
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\">")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		var templ_7745c5c3_Var11 string
+		templ_7745c5c3_Var11, templ_7745c5c3_Err = templ.JoinStringErrs(p.Types[0].Type.Name)
+		if templ_7745c5c3_Err != nil {
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/partial/card.templ`, Line: 31, Col: 61}
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var11))
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</div></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -112,21 +169,35 @@ func Card(p *internals.Pokemon) templ.Component {
 	})
 }
 
+var colorBorder = "#b3bbbe"
+
+var colorElectric = "#ffd030"
+var colorWater = "#56bfeb"
+var colorDark = "#002a27"
+var colorPsychic = "#b470ab"
+var colorGrass = "#90c843"
+var colorFire = "#f6a46f"
+var colorNormal = "#e5dde5"
+var colorFighting = "#efb06b"
+var colorDragon = "#dec872"
+var colorSteel = "#dce0e1"
+var colorFairy = "#e7358a"
+var colorRock = "#e7cbb2"
+
 func card() templ.CSSClass {
 	var templ_7745c5c3_CSSBuilder strings.Builder
 	templ_7745c5c3_CSSBuilder.WriteString(`border:solid 24px #b3bbbe;`)
-	templ_7745c5c3_CSSBuilder.WriteString(`box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);`)
+	templ_7745c5c3_CSSBuilder.WriteString(`padding:24px;`)
 	templ_7745c5c3_CSSBuilder.WriteString(`background:lightblue;`)
 	templ_7745c5c3_CSSBuilder.WriteString(`border-radius:15px;`)
 	templ_7745c5c3_CSSBuilder.WriteString(`padding:4px;`)
 	templ_7745c5c3_CSSBuilder.WriteString(`margin-top:80px;`)
 	templ_7745c5c3_CSSBuilder.WriteString(`width:30rem;`)
 	templ_7745c5c3_CSSBuilder.WriteString(`height:40rem;`)
-	templ_7745c5c3_CSSBuilder.WriteString(`color:navy;`)
-	templ_7745c5c3_CSSBuilder.WriteString(`display:flex;`)
-	templ_7745c5c3_CSSBuilder.WriteString(`flex-direction:column;`)
-	templ_7745c5c3_CSSBuilder.WriteString(`justify-content:space-between;`)
-	templ_7745c5c3_CSSBuilder.WriteString(`align-items:center;`)
+	templ_7745c5c3_CSSBuilder.WriteString(`color:#111;`)
+	templ_7745c5c3_CSSBuilder.WriteString(`position:relative;`)
+	templ_7745c5c3_CSSBuilder.WriteString(`font-family:Gill Sans Extrabold, sans-serif;`)
+	templ_7745c5c3_CSSBuilder.WriteString(`box-shadow:.6rem .5rem 0 #a2acb0, 1.2rem 1.0rem 0 #96a1a5, 1.8rem 1.5rem 0 #89969a, 2.4rem 2rem 0 #7e8c91;`)
 	templ_7745c5c3_CSSID := templ.CSSID(`card`, templ_7745c5c3_CSSBuilder.String())
 	return templ.ComponentCSSClass{
 		ID:    templ_7745c5c3_CSSID,
@@ -137,9 +208,12 @@ func card() templ.CSSClass {
 func pic() templ.CSSClass {
 	var templ_7745c5c3_CSSBuilder strings.Builder
 	templ_7745c5c3_CSSBuilder.WriteString(`border:solid 3px #b3bbbe;`)
-	templ_7745c5c3_CSSBuilder.WriteString(`box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);`)
-	templ_7745c5c3_CSSBuilder.WriteString(`width:100%;`)
+	templ_7745c5c3_CSSBuilder.WriteString(`width:95%;`)
 	templ_7745c5c3_CSSBuilder.WriteString(`height:11rem;`)
+	templ_7745c5c3_CSSBuilder.WriteString(`padding:.6rem;`)
+	templ_7745c5c3_CSSBuilder.WriteString(`position:absolute;`)
+	templ_7745c5c3_CSSBuilder.WriteString(`top:6rem;`)
+	templ_7745c5c3_CSSBuilder.WriteString(`left:2.5%;`)
 	templ_7745c5c3_CSSID := templ.CSSID(`pic`, templ_7745c5c3_CSSBuilder.String())
 	return templ.ComponentCSSClass{
 		ID:    templ_7745c5c3_CSSID,
@@ -149,17 +223,149 @@ func pic() templ.CSSClass {
 
 func header() templ.CSSClass {
 	var templ_7745c5c3_CSSBuilder strings.Builder
+	templ_7745c5c3_CSSBuilder.WriteString(`position:absolute;`)
+	templ_7745c5c3_CSSBuilder.WriteString(`top:0;`)
+	templ_7745c5c3_CSSBuilder.WriteString(`left:0;`)
 	templ_7745c5c3_CSSBuilder.WriteString(`text-transform:capitalize;`)
-	templ_7745c5c3_CSSBuilder.WriteString(`color:#111;`)
 	templ_7745c5c3_CSSBuilder.WriteString(`width:100%;`)
-	templ_7745c5c3_CSSBuilder.WriteString(`padding:2px;`)
-	templ_7745c5c3_CSSBuilder.WriteString(`margin:4px;`)
+	templ_7745c5c3_CSSBuilder.WriteString(`padding:.6rem;`)
 	templ_7745c5c3_CSSBuilder.WriteString(`font-size:22px;`)
 	templ_7745c5c3_CSSBuilder.WriteString(`display:flex;`)
 	templ_7745c5c3_CSSBuilder.WriteString(`justify-content:space-between;`)
 	templ_7745c5c3_CSSBuilder.WriteString(`align-items:center;`)
-	templ_7745c5c3_CSSBuilder.WriteString(`font-family:Gill Sans Extrabold, sans-serif;`)
 	templ_7745c5c3_CSSID := templ.CSSID(`header`, templ_7745c5c3_CSSBuilder.String())
+	return templ.ComponentCSSClass{
+		ID:    templ_7745c5c3_CSSID,
+		Class: templ.SafeCSS(`.` + templ_7745c5c3_CSSID + `{` + templ_7745c5c3_CSSBuilder.String() + `}`),
+	}
+}
+
+func info() templ.CSSClass {
+	var templ_7745c5c3_CSSBuilder strings.Builder
+	templ_7745c5c3_CSSBuilder.WriteString(`position:absolute;`)
+	templ_7745c5c3_CSSBuilder.WriteString(`bottom:1rem;`)
+	templ_7745c5c3_CSSID := templ.CSSID(`info`, templ_7745c5c3_CSSBuilder.String())
+	return templ.ComponentCSSClass{
+		ID:    templ_7745c5c3_CSSID,
+		Class: templ.SafeCSS(`.` + templ_7745c5c3_CSSID + `{` + templ_7745c5c3_CSSBuilder.String() + `}`),
+	}
+}
+
+func electric() templ.CSSClass {
+	var templ_7745c5c3_CSSBuilder strings.Builder
+	templ_7745c5c3_CSSBuilder.WriteString(string(templ.SanitizeCSS(`background`, colorElectric)))
+	templ_7745c5c3_CSSID := templ.CSSID(`electric`, templ_7745c5c3_CSSBuilder.String())
+	return templ.ComponentCSSClass{
+		ID:    templ_7745c5c3_CSSID,
+		Class: templ.SafeCSS(`.` + templ_7745c5c3_CSSID + `{` + templ_7745c5c3_CSSBuilder.String() + `}`),
+	}
+}
+
+func water() templ.CSSClass {
+	var templ_7745c5c3_CSSBuilder strings.Builder
+	templ_7745c5c3_CSSBuilder.WriteString(string(templ.SanitizeCSS(`background`, colorWater)))
+	templ_7745c5c3_CSSID := templ.CSSID(`water`, templ_7745c5c3_CSSBuilder.String())
+	return templ.ComponentCSSClass{
+		ID:    templ_7745c5c3_CSSID,
+		Class: templ.SafeCSS(`.` + templ_7745c5c3_CSSID + `{` + templ_7745c5c3_CSSBuilder.String() + `}`),
+	}
+}
+
+func grass() templ.CSSClass {
+	var templ_7745c5c3_CSSBuilder strings.Builder
+	templ_7745c5c3_CSSBuilder.WriteString(string(templ.SanitizeCSS(`background`, colorGrass)))
+	templ_7745c5c3_CSSID := templ.CSSID(`grass`, templ_7745c5c3_CSSBuilder.String())
+	return templ.ComponentCSSClass{
+		ID:    templ_7745c5c3_CSSID,
+		Class: templ.SafeCSS(`.` + templ_7745c5c3_CSSID + `{` + templ_7745c5c3_CSSBuilder.String() + `}`),
+	}
+}
+
+func dark() templ.CSSClass {
+	var templ_7745c5c3_CSSBuilder strings.Builder
+	templ_7745c5c3_CSSBuilder.WriteString(string(templ.SanitizeCSS(`background`, colorDark)))
+	templ_7745c5c3_CSSBuilder.WriteString(`color:#fff;`)
+	templ_7745c5c3_CSSID := templ.CSSID(`dark`, templ_7745c5c3_CSSBuilder.String())
+	return templ.ComponentCSSClass{
+		ID:    templ_7745c5c3_CSSID,
+		Class: templ.SafeCSS(`.` + templ_7745c5c3_CSSID + `{` + templ_7745c5c3_CSSBuilder.String() + `}`),
+	}
+}
+
+func steel() templ.CSSClass {
+	var templ_7745c5c3_CSSBuilder strings.Builder
+	templ_7745c5c3_CSSBuilder.WriteString(string(templ.SanitizeCSS(`background`, colorSteel)))
+	templ_7745c5c3_CSSID := templ.CSSID(`steel`, templ_7745c5c3_CSSBuilder.String())
+	return templ.ComponentCSSClass{
+		ID:    templ_7745c5c3_CSSID,
+		Class: templ.SafeCSS(`.` + templ_7745c5c3_CSSID + `{` + templ_7745c5c3_CSSBuilder.String() + `}`),
+	}
+}
+
+func fighting() templ.CSSClass {
+	var templ_7745c5c3_CSSBuilder strings.Builder
+	templ_7745c5c3_CSSBuilder.WriteString(string(templ.SanitizeCSS(`background`, colorFighting)))
+	templ_7745c5c3_CSSID := templ.CSSID(`fighting`, templ_7745c5c3_CSSBuilder.String())
+	return templ.ComponentCSSClass{
+		ID:    templ_7745c5c3_CSSID,
+		Class: templ.SafeCSS(`.` + templ_7745c5c3_CSSID + `{` + templ_7745c5c3_CSSBuilder.String() + `}`),
+	}
+}
+
+func fire() templ.CSSClass {
+	var templ_7745c5c3_CSSBuilder strings.Builder
+	templ_7745c5c3_CSSBuilder.WriteString(string(templ.SanitizeCSS(`background`, colorFire)))
+	templ_7745c5c3_CSSID := templ.CSSID(`fire`, templ_7745c5c3_CSSBuilder.String())
+	return templ.ComponentCSSClass{
+		ID:    templ_7745c5c3_CSSID,
+		Class: templ.SafeCSS(`.` + templ_7745c5c3_CSSID + `{` + templ_7745c5c3_CSSBuilder.String() + `}`),
+	}
+}
+
+func normal() templ.CSSClass {
+	var templ_7745c5c3_CSSBuilder strings.Builder
+	templ_7745c5c3_CSSBuilder.WriteString(string(templ.SanitizeCSS(`background`, colorNormal)))
+	templ_7745c5c3_CSSID := templ.CSSID(`normal`, templ_7745c5c3_CSSBuilder.String())
+	return templ.ComponentCSSClass{
+		ID:    templ_7745c5c3_CSSID,
+		Class: templ.SafeCSS(`.` + templ_7745c5c3_CSSID + `{` + templ_7745c5c3_CSSBuilder.String() + `}`),
+	}
+}
+
+func dragon() templ.CSSClass {
+	var templ_7745c5c3_CSSBuilder strings.Builder
+	templ_7745c5c3_CSSBuilder.WriteString(string(templ.SanitizeCSS(`background`, colorDragon)))
+	templ_7745c5c3_CSSID := templ.CSSID(`dragon`, templ_7745c5c3_CSSBuilder.String())
+	return templ.ComponentCSSClass{
+		ID:    templ_7745c5c3_CSSID,
+		Class: templ.SafeCSS(`.` + templ_7745c5c3_CSSID + `{` + templ_7745c5c3_CSSBuilder.String() + `}`),
+	}
+}
+
+func fairy() templ.CSSClass {
+	var templ_7745c5c3_CSSBuilder strings.Builder
+	templ_7745c5c3_CSSBuilder.WriteString(string(templ.SanitizeCSS(`background`, colorFairy)))
+	templ_7745c5c3_CSSID := templ.CSSID(`fairy`, templ_7745c5c3_CSSBuilder.String())
+	return templ.ComponentCSSClass{
+		ID:    templ_7745c5c3_CSSID,
+		Class: templ.SafeCSS(`.` + templ_7745c5c3_CSSID + `{` + templ_7745c5c3_CSSBuilder.String() + `}`),
+	}
+}
+
+func rock() templ.CSSClass {
+	var templ_7745c5c3_CSSBuilder strings.Builder
+	templ_7745c5c3_CSSBuilder.WriteString(string(templ.SanitizeCSS(`background`, colorRock)))
+	templ_7745c5c3_CSSID := templ.CSSID(`rock`, templ_7745c5c3_CSSBuilder.String())
+	return templ.ComponentCSSClass{
+		ID:    templ_7745c5c3_CSSID,
+		Class: templ.SafeCSS(`.` + templ_7745c5c3_CSSID + `{` + templ_7745c5c3_CSSBuilder.String() + `}`),
+	}
+}
+
+func psychic() templ.CSSClass {
+	var templ_7745c5c3_CSSBuilder strings.Builder
+	templ_7745c5c3_CSSBuilder.WriteString(string(templ.SanitizeCSS(`background`, colorPsychic)))
+	templ_7745c5c3_CSSID := templ.CSSID(`psychic`, templ_7745c5c3_CSSBuilder.String())
 	return templ.ComponentCSSClass{
 		ID:    templ_7745c5c3_CSSID,
 		Class: templ.SafeCSS(`.` + templ_7745c5c3_CSSID + `{` + templ_7745c5c3_CSSBuilder.String() + `}`),

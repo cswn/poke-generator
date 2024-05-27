@@ -3,48 +3,138 @@ package partial
 import "github.com/cswn/poke-generator/internals"
 
 templ Card(p *internals.Pokemon) {
-	<div id="pokemon-card" class={ card() }>
+	<div
+		id="pokemon-card"
+		class={
+			card(),
+			templ.KV(electric(), p.Types[0].Type.Name == "electric"),
+			templ.KV(water(), p.Types[0].Type.Name == "water"),
+			templ.KV(grass(), p.Types[0].Type.Name == "grass"),
+			templ.KV(fire(), p.Types[0].Type.Name == "fire"),
+			templ.KV(dark(), p.Types[0].Type.Name == "dark"),
+			templ.KV(dragon(), p.Types[0].Type.Name == "dragon"),
+			templ.KV(fighting(), p.Types[0].Type.Name == "fighting"),
+			templ.KV(fairy(), p.Types[0].Type.Name == "fairy"),
+			templ.KV(steel(), p.Types[0].Type.Name == "steel"),
+			templ.KV(normal(), p.Types[0].Type.Name == "normal"),
+			templ.KV(rock(), p.Types[0].Type.Name == "rock"),
+			templ.KV(psychic(), p.Types[0].Type.Name == "psychic"),
+		}
+	>
 		<div id="header" class={ header() }>
 			<div>{ p.Name }</div>
-			<div><small>HP</small>120</div>
+			<div><small style="font-size:10px;">HP </small>120</div>
 		</div>
-		<div id="pic" class={ pic() }></div>
-		<div id="poke-info"></div>
+		<div id="pic" class={ pic() }>
+			@InfoBar(p.Id, "Mouse Pokemon", p.Height, p.Weight)
+		</div>
+		<div id="poke-info" class={ info() }>{ p.Types[0].Type.Name }</div>
 	</div>
 }
 
+var colorBorder = "#b3bbbe"
+
+var colorElectric = "#ffd030"
+var colorWater = "#56bfeb"
+var colorDark = "#002a27"
+var colorPsychic = "#b470ab"
+var colorGrass = "#90c843"
+var colorFire = "#f6a46f"
+var colorNormal = "#e5dde5"
+var colorFighting = "#efb06b"
+var colorDragon = "#dec872"
+var colorSteel = "#dce0e1"
+var colorFairy = "#e7358a"
+var colorRock = "#e7cbb2"
+
 css card() {
 	border: solid 24px #b3bbbe;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	padding: 24px;
 	background: lightblue;
 	border-radius: 15px;
 	padding: 4px;
 	margin-top: 80px;
 	width: 30rem;
 	height: 40rem;
-	color: navy;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	align-items: center;
+	color: #111;
+	position: relative;
+	font-family: Gill Sans Extrabold, sans-serif;
+	box-shadow: .6rem .5rem 0 #a2acb0, 1.2rem 1.0rem 0 #96a1a5, 1.8rem 1.5rem 0 #89969a, 2.4rem 2rem 0 #7e8c91;
 }
 
 css pic() {
 	border: solid 3px #b3bbbe;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-	width: 100%;
+	width: 95%;
 	height: 11rem;
+	padding: .6rem;
+	position: absolute;
+	top: 6rem;
+	left: 2.5%;
 }
 
 css header() {
+	position: absolute;
+	top: 0;
+	left: 0;
 	text-transform: capitalize;
-	color: #111;
 	width: 100%;
-	padding: 2px;
-	margin: 4px;
+	padding: .6rem;
 	font-size: 22px;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	font-family: Gill Sans Extrabold, sans-serif;
+}
+
+css info() {
+	position: absolute;
+	bottom: 1rem;
+}
+
+css electric() {
+	background: { colorElectric };
+}
+
+css water() {
+	background: { colorWater };
+}
+
+css grass() {
+	background: { colorGrass };
+}
+
+css dark() {
+	background: { colorDark };
+	color: #fff;
+}
+
+css steel() {
+	background: { colorSteel };
+}
+
+css fighting() {
+	background: { colorFighting };
+}
+
+css fire() {
+	background: { colorFire };
+}
+
+css normal() {
+	background: { colorNormal };
+}
+
+css dragon() {
+	background: { colorDragon };
+}
+
+css fairy() {
+	background: { colorFairy };
+}
+
+css rock() {
+	background: { colorRock };
+}
+
+css psychic() {
+	background: { colorPsychic };
 }
