@@ -17,7 +17,7 @@ type Pokemon struct {
 	PastAbilities          []string          `json:"past_abilities"`
 	PastTypes              []string          `json:"past_types"`
 	Species                map[string]string `json:"species"`
-	Sprites                map[string]string `json:"sprites"`
+	Sprites                SpritesObject     `json:"sprites"`
 	Stats                  []Stat            `json:"stats"`
 	Types                  []Type            `json:"types"`
 	Weight                 int               `json:"weight"`
@@ -64,6 +64,17 @@ type Stat struct {
 	BaseStat int  `json:"base_stat"`
 	Effort   int  `json:"effort"`
 	Stat     Form `json:"stat"`
+}
+
+type SpritesObject struct {
+	BackDefault      string `json:"back_default"`
+	BackFemale       string `json:"back_female"`
+	BackShiny        string `json:"back_shiny"`
+	BackShinyFemale  string `json:"back_shiny_female"`
+	FrontDefault     string `json:"front_default"`
+	FrontFemale      string `json:"front_female"`
+	FrontShiny       string `json:"front_shiny"`
+	FrontShinyFemale string `json:"front_shiny_female"`
 }
 
 type Type struct {
