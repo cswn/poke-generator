@@ -10,21 +10,28 @@ import (
 	"net/http"
 	"strconv"
 
+	"github.com/cswn/poke-generator/cache"
 	"github.com/cswn/poke-generator/internals"
 	"github.com/cswn/poke-generator/web/template/partial"
 )
 
 func GetRandomPokemonHandler(w http.ResponseWriter, r *http.Request) {
-	pokemon := GetRandomPokemon()
+	pokemon := GetRandomPokemonStruct()
 
 	// use the response writer to write a templ component
 	c := partial.Card(&pokemon)
 	c.Render(context.Background(), w)
 }
 
-func GetRandomPokemon() internals.Pokemon {
-	pokemonNumber := rand.Intn(1025)
-	URL := fmt.Sprintf("https://pokeapi.co/api/v2/pokemon/%s", strconv.Itoa(pokemonNumber))
+func GetRandomPokemonStruct() internals.Pokemon {
+	id := rand.Intn(1025)
+	// check if pokemon with this id already in cache, if so, return it
+	var pokemonCache = cache.Init()
+	if cachedPokemon, found := pokemonCache.Get(int64(id)); found {
+		return cachedPokemon
+	}
+
+	URL := fmt.Sprintf("https://pokeapi.co/api/v2/pokemon/%s", strconv.Itoa(id))
 
 	// get http response
 	resp, err := http.Get(URL)
@@ -49,6 +56,8 @@ func GetRandomPokemon() internals.Pokemon {
 		fmt.Println("Couldn't unmarshal data into pokemon struct")
 		fmt.Printf("%v", err)
 	}
+
+	pokemonCache.Set(pokemonStruct)
 
 	return pokemonStruct
 }
