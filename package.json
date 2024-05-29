@@ -4,8 +4,8 @@
   "description": "Random Pokemon generator created using Go, Templ, Tailwind, and HTMX, with data from the PokeAPI.",
   "main": "webpack.config.js",
   "scripts": {
-    "build": "tailwindcss build -o static/css/tailwind.css --minify",
-    "watch": "tailwindcss build -o static/css/tailwind.css --watch"
+    "build": "tailwindcss build -o web/static/css/tailwind.css --minify",
+    "watch": "tailwindcss build -o web/static/css/tailwind.css --watch"
   },
   "repository": {
     "type": "git",
