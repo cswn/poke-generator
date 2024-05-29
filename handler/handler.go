@@ -11,7 +11,7 @@ import (
 	"strconv"
 
 	"github.com/cswn/poke-generator/internals"
-	"github.com/cswn/poke-generator/view/partial"
+	"github.com/cswn/poke-generator/web/template/partial"
 )
 
 func GetRandomPokemonHandler(w http.ResponseWriter, r *http.Request) {
