@@ -1,41 +1,25 @@
 package partial
 
 templ TypeIcon(pokemonType string) {
-	if pokemonType == "bug" {
-		<img src="/web/static/icons/bug.svg" alt="type-icon" height="30" width="30"/>
-	} else if pokemonType == "dark" {
+	if pokemonType == "bug" || pokemonType == "grass" {
+		<img src="/web/static/icons/grass.svg" alt="type-icon" height="30" width="30"/>
+	} else if pokemonType == "dark" || pokemonType == "ghost" {
 		<img src="/web/static/icons/dark.svg" alt="type-icon" height="30" width="30"/>
 	} else if pokemonType == "dragon" {
 		<img src="/web/static/icons/dragon.svg" alt="type-icon" height="30" width="30"/>
 	} else if pokemonType == "electric" {
 		<img src="/web/static/icons/electric.svg" alt="type-icon" height="30" width="30"/>
-	} else if pokemonType == "fairy" {
-		<img src="/web/static/icons/fairy.svg" alt="type-icon" height="30" width="30"/>
-	} else if pokemonType == "fighting" {
+	} else if pokemonType == "fairy" || pokemonType == "psychic" || pokemonType == "poison" {
+		<img src="/web/static/icons/psychic.svg" alt="type-icon" height="30" width="30"/>
+	} else if pokemonType == "fighting" || pokemonType == "ground" || pokemonType == "rock" {
 		<img src="/web/static/icons/fighting.svg" alt="type-icon" height="30" width="30"/>
 	} else if pokemonType == "fire" {
 		<img src="/web/static/icons/fire.svg" alt="type-icon" height="30" width="30"/>
-	} else if pokemonType == "flying" {
-		<img src="/web/static/icons/flying.svg" alt="type-icon" height="30" width="30"/>
-	} else if pokemonType == "ghost" {
-		<img src="/web/static/icons/ghost.svg" alt="type-icon" height="30" width="30"/>
-	} else if pokemonType == "grass" {
-		<img src="/web/static/icons/grass.svg" alt="type-icon" height="30" width="30"/>
-	} else if pokemonType == "ground" {
-		<img src="/web/static/icons/ground.svg" alt="type-icon" height="30" width="30"/>
-	} else if pokemonType == "ice" {
-		<img src="/web/static/icons/ice.svg" alt="type-icon" height="30" width="30"/>
-	} else if pokemonType == "normal" {
+	} else if pokemonType == "flying" || pokemonType == "normal" {
 		<img src="/web/static/icons/normal.svg" alt="type-icon" height="30" width="30"/>
-	} else if pokemonType == "poison" {
-		<img src="/web/static/icons/poison.svg" alt="type-icon" height="30" width="30"/>
-	} else if pokemonType == "psychic" {
-		<img src="/web/static/icons/psychic.svg" alt="type-icon" height="30" width="30"/>
-	} else if pokemonType == "rock" {
-		<img src="/web/static/icons/rock.svg" alt="type-icon" height="30" width="30"/>
-	} else if pokemonType == "steel" {
-		<img src="/web/static/icons/steel.svg" alt="type-icon" height="30" width="30"/>
-	} else if pokemonType == "water" {
+	} else if pokemonType == "ice" || pokemonType == "water" {
 		<img src="/web/static/icons/water.svg" alt="type-icon" height="30" width="30"/>
+	}  else if pokemonType == "steel" {
+		<img src="/web/static/icons/steel.svg" alt="type-icon" height="30" width="30"/>
 	}
 }

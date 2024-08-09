@@ -23,12 +23,12 @@ func TypeIcon(pokemonType string) templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		if pokemonType == "bug" {
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<img src=\"/web/static/icons/bug.svg\" alt=\"type-icon\" height=\"30\" width=\"30\">")
+		if pokemonType == "bug" || pokemonType == "grass" {
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<img src=\"/web/static/icons/grass.svg\" alt=\"type-icon\" height=\"30\" width=\"30\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-		} else if pokemonType == "dark" {
+		} else if pokemonType == "dark" || pokemonType == "ghost" {
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<img src=\"/web/static/icons/dark.svg\" alt=\"type-icon\" height=\"30\" width=\"30\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
@@ -43,12 +43,12 @@ func TypeIcon(pokemonType string) templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-		} else if pokemonType == "fairy" {
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<img src=\"/web/static/icons/fairy.svg\" alt=\"type-icon\" height=\"30\" width=\"30\">")
+		} else if pokemonType == "fairy" || pokemonType == "psychic" || pokemonType == "poison" {
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<img src=\"/web/static/icons/psychic.svg\" alt=\"type-icon\" height=\"30\" width=\"30\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-		} else if pokemonType == "fighting" {
+		} else if pokemonType == "fighting" || pokemonType == "ground" || pokemonType == "rock" {
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<img src=\"/web/static/icons/fighting.svg\" alt=\"type-icon\" height=\"30\" width=\"30\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
@@ -58,58 +58,18 @@ func TypeIcon(pokemonType string) templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-		} else if pokemonType == "flying" {
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<img src=\"/web/static/icons/flying.svg\" alt=\"type-icon\" height=\"30\" width=\"30\">")
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-		} else if pokemonType == "ghost" {
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<img src=\"/web/static/icons/ghost.svg\" alt=\"type-icon\" height=\"30\" width=\"30\">")
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-		} else if pokemonType == "grass" {
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<img src=\"/web/static/icons/grass.svg\" alt=\"type-icon\" height=\"30\" width=\"30\">")
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-		} else if pokemonType == "ground" {
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<img src=\"/web/static/icons/ground.svg\" alt=\"type-icon\" height=\"30\" width=\"30\">")
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-		} else if pokemonType == "ice" {
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<img src=\"/web/static/icons/ice.svg\" alt=\"type-icon\" height=\"30\" width=\"30\">")
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-		} else if pokemonType == "normal" {
+		} else if pokemonType == "flying" || pokemonType == "normal" {
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<img src=\"/web/static/icons/normal.svg\" alt=\"type-icon\" height=\"30\" width=\"30\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-		} else if pokemonType == "poison" {
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<img src=\"/web/static/icons/poison.svg\" alt=\"type-icon\" height=\"30\" width=\"30\">")
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-		} else if pokemonType == "psychic" {
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<img src=\"/web/static/icons/psychic.svg\" alt=\"type-icon\" height=\"30\" width=\"30\">")
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-		} else if pokemonType == "rock" {
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<img src=\"/web/static/icons/rock.svg\" alt=\"type-icon\" height=\"30\" width=\"30\">")
+		} else if pokemonType == "ice" || pokemonType == "water" {
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<img src=\"/web/static/icons/water.svg\" alt=\"type-icon\" height=\"30\" width=\"30\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 		} else if pokemonType == "steel" {
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<img src=\"/web/static/icons/steel.svg\" alt=\"type-icon\" height=\"30\" width=\"30\">")
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-		} else if pokemonType == "water" {
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<img src=\"/web/static/icons/water.svg\" alt=\"type-icon\" height=\"30\" width=\"30\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}

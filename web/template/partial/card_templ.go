@@ -169,22 +169,14 @@ func Card(p *internals.Pokemon) templ.Component {
 	})
 }
 
-var colorBug = "#cef17e"
 var colorDark = "#002a27"
 var colorDragon = "#dec872"
 var colorElectric = "#ffd030"
-var colorFairy = "#e7358a"
 var colorFighting = "#efb06b"
 var colorFire = "#f6a46f"
-var colorFlying = "#c3d3da"
-var colorGhost = "#ba9fbe"
 var colorGrass = "#90c843"
-var colorGround = "#deb482"
-var colorIce = "#d2eefa"
 var colorNormal = "#e5dde5"
-var colorPoison = "#7a51a1"
 var colorPsychic = "#b470ab"
-var colorRock = "#e7cbb2"
 var colorSteel = "#dce0e1"
 var colorWater = "#56bfeb"
 
@@ -257,7 +249,7 @@ func info() templ.CSSClass {
 // type color classes
 func bug() templ.CSSClass {
 	var templ_7745c5c3_CSSBuilder strings.Builder
-	templ_7745c5c3_CSSBuilder.WriteString(string(templ.SanitizeCSS(`background`, colorBug)))
+	templ_7745c5c3_CSSBuilder.WriteString(string(templ.SanitizeCSS(`background`, colorGrass)))
 	templ_7745c5c3_CSSID := templ.CSSID(`bug`, templ_7745c5c3_CSSBuilder.String())
 	return templ.ComponentCSSClass{
 		ID:    templ_7745c5c3_CSSID,
@@ -298,7 +290,7 @@ func electric() templ.CSSClass {
 
 func fairy() templ.CSSClass {
 	var templ_7745c5c3_CSSBuilder strings.Builder
-	templ_7745c5c3_CSSBuilder.WriteString(string(templ.SanitizeCSS(`background`, colorFairy)))
+	templ_7745c5c3_CSSBuilder.WriteString(string(templ.SanitizeCSS(`background`, colorPsychic)))
 	templ_7745c5c3_CSSID := templ.CSSID(`fairy`, templ_7745c5c3_CSSBuilder.String())
 	return templ.ComponentCSSClass{
 		ID:    templ_7745c5c3_CSSID,
@@ -328,7 +320,7 @@ func fire() templ.CSSClass {
 
 func flying() templ.CSSClass {
 	var templ_7745c5c3_CSSBuilder strings.Builder
-	templ_7745c5c3_CSSBuilder.WriteString(string(templ.SanitizeCSS(`background`, colorFlying)))
+	templ_7745c5c3_CSSBuilder.WriteString(string(templ.SanitizeCSS(`background`, colorNormal)))
 	templ_7745c5c3_CSSID := templ.CSSID(`flying`, templ_7745c5c3_CSSBuilder.String())
 	return templ.ComponentCSSClass{
 		ID:    templ_7745c5c3_CSSID,
@@ -338,7 +330,8 @@ func flying() templ.CSSClass {
 
 func ghost() templ.CSSClass {
 	var templ_7745c5c3_CSSBuilder strings.Builder
-	templ_7745c5c3_CSSBuilder.WriteString(string(templ.SanitizeCSS(`background`, colorGhost)))
+	templ_7745c5c3_CSSBuilder.WriteString(string(templ.SanitizeCSS(`background`, colorDark)))
+	templ_7745c5c3_CSSBuilder.WriteString(`color:#fff;`)
 	templ_7745c5c3_CSSID := templ.CSSID(`ghost`, templ_7745c5c3_CSSBuilder.String())
 	return templ.ComponentCSSClass{
 		ID:    templ_7745c5c3_CSSID,
@@ -358,7 +351,7 @@ func grass() templ.CSSClass {
 
 func ground() templ.CSSClass {
 	var templ_7745c5c3_CSSBuilder strings.Builder
-	templ_7745c5c3_CSSBuilder.WriteString(string(templ.SanitizeCSS(`background`, colorGround)))
+	templ_7745c5c3_CSSBuilder.WriteString(string(templ.SanitizeCSS(`background`, colorFighting)))
 	templ_7745c5c3_CSSID := templ.CSSID(`ground`, templ_7745c5c3_CSSBuilder.String())
 	return templ.ComponentCSSClass{
 		ID:    templ_7745c5c3_CSSID,
@@ -368,7 +361,7 @@ func ground() templ.CSSClass {
 
 func ice() templ.CSSClass {
 	var templ_7745c5c3_CSSBuilder strings.Builder
-	templ_7745c5c3_CSSBuilder.WriteString(string(templ.SanitizeCSS(`background`, colorIce)))
+	templ_7745c5c3_CSSBuilder.WriteString(string(templ.SanitizeCSS(`background`, colorWater)))
 	templ_7745c5c3_CSSID := templ.CSSID(`ice`, templ_7745c5c3_CSSBuilder.String())
 	return templ.ComponentCSSClass{
 		ID:    templ_7745c5c3_CSSID,
@@ -388,7 +381,7 @@ func normal() templ.CSSClass {
 
 func poison() templ.CSSClass {
 	var templ_7745c5c3_CSSBuilder strings.Builder
-	templ_7745c5c3_CSSBuilder.WriteString(string(templ.SanitizeCSS(`background`, colorPoison)))
+	templ_7745c5c3_CSSBuilder.WriteString(string(templ.SanitizeCSS(`background`, colorPsychic)))
 	templ_7745c5c3_CSSID := templ.CSSID(`poison`, templ_7745c5c3_CSSBuilder.String())
 	return templ.ComponentCSSClass{
 		ID:    templ_7745c5c3_CSSID,
@@ -408,7 +401,7 @@ func psychic() templ.CSSClass {
 
 func rock() templ.CSSClass {
 	var templ_7745c5c3_CSSBuilder strings.Builder
-	templ_7745c5c3_CSSBuilder.WriteString(string(templ.SanitizeCSS(`background`, colorRock)))
+	templ_7745c5c3_CSSBuilder.WriteString(string(templ.SanitizeCSS(`background`, colorFighting)))
 	templ_7745c5c3_CSSID := templ.CSSID(`rock`, templ_7745c5c3_CSSBuilder.String())
 	return templ.ComponentCSSClass{
 		ID:    templ_7745c5c3_CSSID,

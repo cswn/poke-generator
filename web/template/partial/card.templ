@@ -42,22 +42,14 @@ templ Card(p *internals.Pokemon) {
 	</div>
 }
 
-var colorBug = "#cef17e"
 var colorDark = "#002a27"
 var colorDragon = "#dec872"
 var colorElectric = "#ffd030"
-var colorFairy = "#e7358a"
 var colorFighting = "#efb06b"
 var colorFire = "#f6a46f"
-var colorFlying = "#c3d3da"
-var colorGhost = "#ba9fbe"
 var colorGrass = "#90c843"
-var colorGround = "#deb482"
-var colorIce = "#d2eefa"
 var colorNormal = "#e5dde5"
-var colorPoison = "#7a51a1"
 var colorPsychic = "#b470ab"
-var colorRock = "#e7cbb2"
 var colorSteel = "#dce0e1"
 var colorWater = "#56bfeb"
 
@@ -106,7 +98,7 @@ css info() {
 // type color classes
 
 css bug() {
-	background: { colorBug };
+	background: { colorGrass };
 }
 
 css dark() {
@@ -123,7 +115,7 @@ css electric() {
 }
 
 css fairy() {
-	background: { colorFairy };
+	background: { colorPsychic };
 }
 
 css fighting() {
@@ -135,11 +127,12 @@ css fire() {
 }
 
 css flying() {
-	background: { colorFlying };
+	background: { colorNormal };
 }
 
 css ghost() {
-	background: { colorGhost };
+	background: { colorDark };
+	color: #fff;
 }
 
 css grass() {
@@ -147,11 +140,11 @@ css grass() {
 }
 
 css ground() {
-	background: { colorGround };
+	background: { colorFighting };
 }
 
 css ice() {
-	background: { colorIce };
+	background: { colorWater };
 }
 
 css normal() {
@@ -159,7 +152,7 @@ css normal() {
 }
 
 css poison() {
-	background: { colorPoison };
+	background: { colorPsychic };
 }
 
 css psychic() {
@@ -167,7 +160,7 @@ css psychic() {
 }
 
 css rock() {
-	background: { colorRock };
+	background: { colorFighting };
 }
 
 css steel() {
