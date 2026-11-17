@@ -14,8 +14,6 @@ type Pokemon struct {
 	Moves                  []Move            `json:"moves"`
 	Name                   string            `json:"name"`
 	Order                  int               `json:"order"`
-	PastAbilities          []string          `json:"past_abilities"`
-	PastTypes              []string          `json:"past_types"`
 	Species                map[string]string `json:"species"`
 	Sprites                SpritesObject     `json:"sprites"`
 	Stats                  []Stat            `json:"stats"`
